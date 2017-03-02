@@ -64,4 +64,8 @@ public class Show {
 			voters.add(user);
 		}
 	}
+	
+	public String getName() {
+		return name;
+	}
 }
