@@ -1,3 +1,4 @@
+
 package users;
 import java.util.TreeMap;
 import java.util.regex.Matcher;
@@ -47,8 +48,8 @@ public class User {
 		System.out.println("Show " + show.getName() + " was never on your list.");
 	}
 	
-	public void rateShow(Show show) {
-		System.out.println(show.getRating());
+	public void rateShow(Show show, int rating) {
+		show.vote(this, rating);
 	}
 	
 	public void rateEpisode() {

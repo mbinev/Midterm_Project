@@ -3,9 +3,7 @@ package shows;
 import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.TreeMap;
-
-import org.apache.tomcat.jni.User;
-
+import users.User;
 public class Show {
 	
 	public class Season{
@@ -68,4 +66,6 @@ public class Show {
 	public String getName() {
 		return name;
 	}
+	
 }
+
