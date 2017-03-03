@@ -3,9 +3,7 @@ package shows;
 import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.TreeMap;
-
-import org.apache.tomcat.jni.User;
-
+import users.User;
 public class Show {
 	
 	public class Season{
@@ -63,5 +61,9 @@ public class Show {
 			this.voteCount += vote;
 			voters.add(user);
 		}
+	}
+
+	public String getName() {
+		return this.name;
 	}
 }
