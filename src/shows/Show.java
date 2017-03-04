@@ -44,6 +44,13 @@ public class Show {
 	private HashSet<User> followers;
 	TreeMap<Integer, Season> seasons;
 	
+	public Show(String name) {
+		this.name = name;
+		seasons = new TreeMap<Integer, Season>();
+		voters = new HashSet<User>();
+		followers = new HashSet<User>();
+	}
+	
 	public void addSeason(int number){
 		if(!seasons.containsKey(number)){
 			this.seasons.put(number, new Season(number));
@@ -61,6 +68,10 @@ public class Show {
 			this.voteCount += vote;
 			voters.add(user);
 		}
+	}
+	
+	public TreeMap<Integer, Season> getSeasons() {
+		return seasons;
 	}
 	
 	public String getName() {
