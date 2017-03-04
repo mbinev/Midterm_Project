@@ -62,8 +62,7 @@ public class User {
 			System.out.println("The episode is already checked as watched.");
 		} else {
 			 e.setIsWached();
-		}
-		
+		}		
 	}
 	
 	private void setName(String userName) {
