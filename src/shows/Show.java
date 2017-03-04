@@ -17,6 +17,14 @@ public class Show {
 			private Episode(int number){
 				this.number = number;
 			}
+			
+			public boolean getIsWached() {
+				return this.isWached;
+			}
+			
+			public void setIsWached() {
+				this.isWached = true;
+			}
 		}
 		
 		int number;
@@ -31,10 +39,8 @@ public class Show {
 				this.episodes.put(number, new Episode(number));
 			}else{
 				System.out.println("There is already an episode " + number + " in this season!");
-			}
-			
-		}
-		
+			}			
+		}		
 	}
 	
 	private String name;
