@@ -5,6 +5,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import shows.Show;
+import shows.Show.Season.Episode;
 
 public class User {
 
@@ -56,8 +57,13 @@ public class User {
 		//TODO
 	}
 	
-	public void checkEpisodeAsWatched() {
-		//TODO
+	public void checkEpisodeAsWatched(Episode e) {
+		if(e.getIsWached()) {
+			System.out.println("The episode is already checked as watched.");
+		} else {
+			 e.setIsWached();
+		}
+		
 	}
 	
 	private void setName(String userName) {

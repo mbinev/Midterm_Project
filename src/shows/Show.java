@@ -17,6 +17,14 @@ public class Show {
 			private Episode(int number){
 				this.number = number;
 			}
+			
+			public boolean getIsWached() {
+				return this.isWached;
+			}
+			
+			public void setIsWached() {
+				this.isWached = true;
+			}
 		}
 		
 		int number;
