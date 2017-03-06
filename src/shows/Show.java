@@ -25,6 +25,7 @@ public class Show {
 			public void setIsWached() {
 				this.isWached = true;
 			}
+			
 		}
 		
 		int number;

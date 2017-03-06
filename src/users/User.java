@@ -53,7 +53,7 @@ public class User {
 		show.vote(this, rating);
 	}
 	
-	public void rateEpisode() {
+	public void rateEpisode(Episode episode, int raiting) {
 		//TODO
 	}
 	
