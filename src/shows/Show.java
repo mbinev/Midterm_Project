@@ -4,18 +4,23 @@ import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.TreeMap;
 import users.User;
+import shows.Comment;
 public class Show {
 	
 	public class Season{
 		
 		public class Episode{
-			int number;
+			private int number;
+			private String name;
 			private String plot;
 			private LocalDate airingDate;
 			private boolean isWached;
+			private LinkedList<Comment> comments;
 			
 			private Episode(int number){
 				this.number = number;
+				this.isWached = false;
+				comments = new LinkedList<Comment>();
 			}
 			
 			public boolean getIsWached() {
@@ -26,6 +31,13 @@ public class Show {
 				this.isWached = true;
 			}
 			
+<<<<<<< HEAD
+=======
+			public void addComment(User user, String content) {
+				this.coments.add(new Comment(user, content));
+			}
+			
+>>>>>>> 5b4d07f2c8c813e448ff394c5f0977f2a5f25a88
 		}
 		
 		int number;
@@ -41,7 +53,7 @@ public class Show {
 			}else{
 				System.out.println("There is already an episode " + number + " in this season!");
 			}			
-		}		
+		}
 	}
 	
 	private String name;
@@ -50,12 +62,14 @@ public class Show {
 	private HashSet<User> voters;
 	private HashSet<User> followers;
 	TreeMap<Integer, Season> seasons;
+	private LinkedList<Comment> comments;
 	
 	public Show(String name) {
 		this.name = name;
 		seasons = new TreeMap<Integer, Season>();
 		voters = new HashSet<User>();
 		followers = new HashSet<User>();
+		comments = new LinkedList<Comment>();
 	}
 	
 	public void addSeason(int number){
@@ -85,5 +99,8 @@ public class Show {
 		return name;
 	}
 	
+	public void addComment(User user, String content) {
+		this.coments.add(new Comment(user, content));
+	}
 }
 
