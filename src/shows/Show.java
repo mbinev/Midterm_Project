@@ -2,6 +2,7 @@ package shows;
 
 import java.time.LocalDate;
 import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.TreeMap;
 import users.User;
 import shows.Comment;
@@ -31,13 +32,16 @@ public class Show {
 				this.isWached = true;
 			}
 			
-<<<<<<< HEAD
-=======
 			public void addComment(User user, String content) {
-				this.coments.add(new Comment(user, content));
+				this.comments.add(new Comment(user, content));
 			}
 			
->>>>>>> 5b4d07f2c8c813e448ff394c5f0977f2a5f25a88
+			public void getComments(){
+				for (Comment comment : this.comments) {
+					System.out.println(comment.getContent());
+				}
+			}
+			
 		}
 		
 		int number;
@@ -53,6 +57,10 @@ public class Show {
 			}else{
 				System.out.println("There is already an episode " + number + " in this season!");
 			}			
+		}
+		
+		public TreeMap<Integer, Episode> getEpisode(){
+			return this.episodes;
 		}
 	}
 	
@@ -100,7 +108,12 @@ public class Show {
 	}
 	
 	public void addComment(User user, String content) {
-		this.coments.add(new Comment(user, content));
+		this.comments.add(new Comment(user, content));
+	}
+	
+	public void getComments(){
+		for (Comment comment : comments) {
+			System.out.println(comment.getContent());
+		}
 	}
 }
-
