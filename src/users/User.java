@@ -107,6 +107,10 @@ public class User {
 		this.password = password;
 	}
 	
+	public String getUserName() {
+		return userName;
+	}
+	
 	private boolean validateEmail(String email) {
 		Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(email);
         return matcher.find();
