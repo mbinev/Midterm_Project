@@ -17,11 +17,14 @@ public class Show {
 			private LocalDate airingDate;
 			private boolean isWached;
 			private LinkedList<Comment> comments;
+			private int voteCount;
+			private HashSet<User> voters;
 			
 			private Episode(int number){
 				this.number = number;
 				this.isWached = false;
 				comments = new LinkedList<Comment>();
+				this.voters = new HashSet<>();
 			}
 			
 			public boolean getIsWached() {
@@ -42,6 +45,16 @@ public class Show {
 				}
 			}
 			
+			public double getRating(){
+				return this.voteCount/this.voters.size();
+			}
+			
+			public void vote(User user, int vote){
+				if(!voters.contains(user)){
+					this.voteCount += vote;
+					voters.add(user);
+				}
+			}			
 		}
 		
 		int number;
