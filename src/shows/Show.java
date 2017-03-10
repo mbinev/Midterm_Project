@@ -41,7 +41,7 @@ public class Show {
 			
 			public void getComments(){
 				for (Comment comment : this.comments) {
-					System.out.println(comment.getContent());
+					System.out.println(comment.getUser().getUserName() + " " + comment.getContent() + " " + comment.getDate());
 				}
 			}
 			
@@ -126,7 +126,7 @@ public class Show {
 	
 	public void getComments(){
 		for (Comment comment : comments) {
-			System.out.println(comment.getContent());
+			System.out.println(comment.getUser().getUserName() + " " + comment.getContent() + " " + comment.getDate());
 		}
 	}
 }
