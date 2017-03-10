@@ -10,5 +10,5 @@ public class Demo {
 		grim.getSeasons().get(1).addEpisode(1);
 		grim.addSeason(1);
 		grim.getSeasons().get(1).addEpisode(1);
-	}
+		System.out.println(grim.getSeasons().get(1).getEpisode().get(1).getRating());	}
 }
