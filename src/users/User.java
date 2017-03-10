@@ -119,5 +119,12 @@ public class User {
 	private boolean isNullOrEmpty(String text) {
 		return text.isEmpty() || text == null;
 	}
+	
+	public void makeComment(Show show, String content){
+		show.addComment(this, content);
+	}
+	public void makeComment(Episode episode, String content){
+		episode.addComment(this, content);
+	}
 
 }
