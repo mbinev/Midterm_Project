@@ -10,4 +10,7 @@ public class Comment {
 		this.user = user;
 		this.content = content;
 	}
+	public String getContent() {
+		return content;
+	}
 }
