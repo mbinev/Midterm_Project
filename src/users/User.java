@@ -53,8 +53,9 @@ public class User {
 		show.vote(this, rating);
 	}
 	
-	public void rateEpisode(Episode episode, int raiting) {
-		//TODO
+	public void rateEpisode(Show show, int season, int episode, int raiting) {
+		Episode e = show.getSeasons().get(season).getEpisode().get(episode);
+		e.vote(this, raiting);
 	}
 	
 	public void checkEpisodeAsWatched(Episode e) {
