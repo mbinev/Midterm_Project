@@ -1,5 +1,8 @@
+package shows;
+
 import java.time.LocalDate;
-import java.users.User;
+import users.User;
+
 
 public class Comment {
 	private User user;
