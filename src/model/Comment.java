@@ -1,7 +1,6 @@
-package shows;
+package model;
 
 import java.time.LocalDate;
-import users.User;
 
 
 public class Comment {

@@ -1,11 +1,9 @@
-package shows;
+package model;
 
 import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.TreeMap;
-import users.User;
-import shows.Comment;
 public class Show {
 	
 	public class Season{

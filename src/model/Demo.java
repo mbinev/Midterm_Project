@@ -1,9 +1,9 @@
-import shows.Show;
+package model;
 
 public class Demo {
 	public static void main(String[] args) {
 		
-		users.User dasdas = new users.User("Nade", 28, "Bulgaria", "nadeto@abv.bg", "simPLe_89");
+		model.User dasdas = new model.User("Nade", 28, "Bulgaria", "nadeto@abv.bg", "simPLe_89");
 		Show grim = new Show("Grim");
 		dasdas.addShow(grim);
 		grim.addSeason(1);

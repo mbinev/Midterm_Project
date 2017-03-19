@@ -1,11 +1,10 @@
 
-package users;
+package model;
 import java.util.TreeMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import shows.Show;
-import shows.Show.Season.Episode;
+import model.Show.Season.Episode;
 
 public class User {
 
