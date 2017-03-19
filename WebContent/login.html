@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome - Track My Series</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description"
+	content="Track My Series keeps track of your current tv shows. Discover new tv shows, discuss and share them with your friends." />
+<meta http-equiv="content-language" content="en" />
+<link href="/favicon.ico" type="image/x-icon" rel="icon" />
+<link href="/favicon.ico" type="image/x-icon" rel="shortcut icon" />
+<link rel="stylesheet" type="text/css"
+	href="styles.css" />
+</head>
+<body class="users users-login guest">
+	<div id="authMessage" class="message">Login failed. Invalid email
+		and/or password.</div>
+	<div id="mainContainer">
+		<div id="head">
+			<div class="inner">
+				<h1 class="logo">
+					<a href="/">Welcome</a>
+				</h1>
+				<div class="navigation">
+					<ul>
+						<li class="inactive"><a href="/">Home</a></li>
+						<li class="inactive"><a href="/shows/popular">Shows</a></li>
+						<li class="active"><a href="/users">Community</a></li>
+					</ul>
+				</div>
+				<div class="search-wrapper">
+					<div class="search">
+						<form action="/shows/search" id="searchform" method="get"
+							accept-charset="utf-8">
+							<div style="display: none;">
+								<input type="hidden" name="key"
+									value="e2ec8ec81cc1353a2c05a71ce2125a09adc60bee"
+									id="Token282167189" />
+							</div>
+							<input name="showName" type="text"
+								fmtv:placeHolder="Search shows or users" id="searchField"
+								class="text" />
+							<div style="display: none;">
+								<input type="hidden" name="fields"
+									value="5c16f520d0a386c7b09b8ee76f784f787bb566c9%3A"
+									id="TokenFields178936511" />
+							</div>
+						</form>
+					</div>
+				</div>
+				<div class="service-wrapper">
+					<ul class="service logged-out">
+						<li><a href="/signup">Sign up</a></li>
+						<li class="last"><a href="/login" class="modalLogin">Sign
+								in</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div id="container">
+			<div class="hp-inner">
+					<div class="top clearfix">
+						<div class="left">
+								<div class="content-body">
+									<div class="login-form-wrapper clearfix">
+										<h2>Sign in</h2>
+										<div class="legacy">
+											<form action="/login" id="UserLoginForm" method="post"
+												accept-charset="utf-8">
+												<div style="display: none;">
+													<input type="hidden" name="_method" value="POST" /><input
+														type="hidden" name="data[_Token][key]"
+														value="e2ec8ec81cc1353a2c05a71ce2125a09adc60bee"
+														id="Token580535520" />
+												</div>
+												<div class="input text required">
+													<label for="email-58cea0f0bcbec">Your email or
+														username</label><input name="data[User][email]" type="text"
+														id="email-58cea0f0bcbec" tabindex="100" maxlength="255"/>
+												</div>
+												<div class="input password">
+													<div class="passwordlabel">
+														<label for="UserPassword">Your password</label> 
+													</div>
+													<input type="password" name="data[User][password]"
+														id="password-58cea0f0bcc23" tabindex="101" />
+												</div>
+
+												<div class="input checkbox">
+													<input type="hidden" name="data[User][remember_me]"
+														id="UserRememberMe_" value="0" /><input type="checkbox"
+														name="data[User][remember_me]" tabindex="102" value="1"
+														id="UserRememberMe" /><label for="UserRememberMe">Keep
+														me logged in</label>
+												</div>
+												<div class="input submit login clearfix">
+													<input class="f-button" tabindex="103" type="submit"
+														value="Sign in" /> <span class="or"> or <a
+														href="/signup">sign up now!</a>
+													</span>
+												</div>
+												<div style="display: none;">
+													<input type="hidden" name="data[_Token][fields]"
+														value="fb640ddb0b538773c946bccb0b4fe158ebc894ae%3A"
+														id="TokenFields90994871" />
+												</div>
+											</form>
+										</div>
+									</div>							
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+</body>
+</html>
