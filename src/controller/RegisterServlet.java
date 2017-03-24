@@ -21,15 +21,10 @@ public class RegisterServlet extends HttpServlet{
 		
 		//get parameters
 		String userName = req.getParameter("username");
-		System.out.println(userName);
 		String email = req.getParameter("email");
-		System.out.println(email);
 		String password = req.getParameter("password");
-		System.out.println(password);
 		String country = req.getParameter("country");
-		System.out.println(country);
 		String age = req.getParameter("age");
-		System.out.println(age);
 		
 		//validate parameters
 		boolean validUserName = validateUserName(userName);
@@ -42,7 +37,7 @@ public class RegisterServlet extends HttpServlet{
 			RequestDispatcher rd1 = req.getRequestDispatcher("index.html");
 			rd1.forward(req, resp);
 		} else {
-			RequestDispatcher rd = req.getRequestDispatcher("register.html");
+			RequestDispatcher rd = req.getRequestDispatcher("registerFail.html");
 			rd.forward(req, resp);
 		}		
 	}
