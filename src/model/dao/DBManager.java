@@ -3,6 +3,8 @@ package model.dao;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.Scanner;
+
 
 public class DBManager {
 	private static DBManager instance;
@@ -10,7 +12,7 @@ public class DBManager {
 	private static final String DB_PORT = "3306";
 	private static final String DB_NAME = "tms";
 	private static final String DB_USER = "root";
-	private static final String DB_PASS = "root";
+	private static final String DB_PASS = "A_4537jax";
 	private Connection connection = null;
 	
 	private DBManager() {
@@ -18,11 +20,13 @@ public class DBManager {
 			Class.forName("com.mysql.jdbc.Driver");
 		} catch (ClassNotFoundException e) {
 			System.out.println("Problem loading the driver!");
+			Scanner sc = new Scanner(System.in);
+			sc.nextLine();
 		}
 		try {
-			connection = DriverManager.getConnection("jdbc:mysql//"+DB_IP+":"+DB_PORT+"/"+DB_NAME, DB_USER, DB_PASS);
+			this.connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/tms?user=user&password=user");
 		} catch (SQLException e) {
-			System.out.println("Unable to connect to Database");
+			System.out.println("Unable to connect to Database" + e.getMessage());
 		}
 		
 	}

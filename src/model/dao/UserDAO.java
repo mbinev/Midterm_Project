@@ -6,6 +6,7 @@ import java.security.NoSuchAlgorithmException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -30,7 +31,7 @@ public class UserDAO {
 	
 	public synchronized void addUser(User u) throws SQLException {
 		String sql = "INSERT INTO users	(user_name, age, country, email, password) VALUES(?, ?, ?, ?, md5(?))";
-		PreparedStatement st = DBManager.getInstance().getConnection().prepareStatement(sql);
+		PreparedStatement st = DBManager.getInstance().getConnection().prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 		st.setString(1, u.getUserName());
 		st.setInt(2, u.getAge());
 		st.setString(3, u.getCountry());

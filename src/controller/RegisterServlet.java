@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -10,6 +11,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import model.User;
+import model.dao.DBManager;
+import model.dao.UserDAO;
 
 @WebServlet("/register")
 public class RegisterServlet extends HttpServlet{
@@ -33,8 +38,15 @@ public class RegisterServlet extends HttpServlet{
 		boolean validCountry = validateCountry(country);
 		boolean validAge = validateAge(Integer.valueOf(age));
 		//if the data is not valid //if the data is valid
+		String fileName = "index.html";
 		if(validUserName && validEmail && validPassword && validCountry && validAge) {
-			RequestDispatcher rd1 = req.getRequestDispatcher("index.html");
+			User u = new User(userName,Integer.valueOf(age), country, email, password);
+			try {
+				UserDAO.getInstance().addUser(u);
+			} catch (SQLException e) {
+				fileName = "registerFail.html";
+			}
+			RequestDispatcher rd1 = req.getRequestDispatcher(fileName);
 			rd1.forward(req, resp);
 		} else {
 			RequestDispatcher rd = req.getRequestDispatcher("registerFail.html");
