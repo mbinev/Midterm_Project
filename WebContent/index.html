@@ -85,7 +85,7 @@
 						<div class="right signup hp-signup">
 							<div id="homepageSignup">
 								<h3>Sign up with your email and never loose track of your shows!</h3>
-								<form action="/signup" autocomplete="off" id="signupForm" method="post" accept-charset="utf-8">
+								<form action="/register" autocomplete="off" id="signupForm" method="post" accept-charset="utf-8">
 									<div style="display:none;">
 										<input type="hidden" name="_method" value="POST" />
 										<input type="hidden" name="data[_Token][key]" value="55cf595a26d37e8087bf21894be2bf64d8d06926" id="Token786155119" />
@@ -101,6 +101,16 @@
 									<div class="input password">
 										<label for="UserPasswordFirst">Password</label>
 										<input type="password" name="data[User][password_first]" class="minLength:5" tabindex="3" id="UserPasswordFirst" />
+									</div>
+									<div class="input text required">
+										<label for="UserCountry">Country</label><input
+											type="country" name="data[User][country]"
+											class="minLength:5" tabindex="4" id="UserCountry" />
+									</div>
+									<div class="input text required">
+										<label for="UserAge">Age</label><input
+											type="age" name="data[User][age]"
+											class="minLength:1" tabindex="5" id="UserAge" />
 									</div>
 									<div class="input signup">
 										<input class="f-button" tabindex="8" type="submit" value="Create account" />
