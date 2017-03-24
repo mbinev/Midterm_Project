@@ -14,7 +14,7 @@ public class User {
 			Pattern.compile("(?=.*[0-9])(?=.*[A-Z])(?=\\S+$).{8,}");
 	// at least one digit,at least one upper case letter, at least 8 characters, no whitespaces
 
-	private int userId;
+	private long userId;
 	private String userName;
 	private int age;
 	private String country;
@@ -23,7 +23,7 @@ public class User {
 	private TreeMap<String, Show> myFollowing;
 	
 	public User(String userName, int age, String country, String email, String password) {
-		this.setName(userName);
+		this.setUserName(userName);
 		this.setAge(age);
 		this.setCountry(country);
 		this.setEmail(email);
@@ -66,12 +66,28 @@ public class User {
 		}		
 	}
 	
-	private void setName(String userName) {
+	public long getUserId() {
+		return userId;
+	}
+	
+	public void setUserId(long userId) {
+		this.userId = userId;
+	}
+	
+	public String getUserName() {
+		return userName;
+	}
+	
+	private void setUserName(String userName) {
 		if(isNullOrEmpty(userName)) {
 			this.userName = "JhonDoe";
 			return;
 		}
 		this.userName = userName;
+	}
+	
+	public int getAge() {
+		return age;
 	}
 	
 	private void setAge(int age) {
@@ -82,12 +98,20 @@ public class User {
 		this.age = age;
 	}
 	
+	public String getCountry() {
+		return country;
+	}
+	
 	private void setCountry(String country) {
 		if(isNullOrEmpty(country)) {
 			this.country = "Unknown";
 			return;
 		}
 		this.country = country;
+	}
+	
+	public String getEmail() {
+		return email;
 	}
 	
 	private void setEmail(String email) {
@@ -98,6 +122,10 @@ public class User {
 		this.email = email;
 	}
 	
+	public String getPassword() {
+		return password;
+	}
+	
 	private void setPassword(String password) {
 		if(!validatePassword(password)) {
 			System.out.println("Invalid password, valid one will be assigned and send to your email.");
@@ -105,10 +133,6 @@ public class User {
 			return;
 		}
 		this.password = password;
-	}
-	
-	public String getUserName() {
-		return userName;
 	}
 	
 	private boolean validateEmail(String email) {
