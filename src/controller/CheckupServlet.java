@@ -12,7 +12,6 @@ public class CheckupServlet extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		super.doGet(req, resp);
+		// TODO return all registered user to the client(browser)
 	}
 }

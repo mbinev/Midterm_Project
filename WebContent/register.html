@@ -6,8 +6,6 @@
 <meta name="description"
 	content="Track My Series keeps track of your current tv shows. Discover new tv shows, discuss and share them with your friends." />
 <meta http-equiv="content-language" content="en" />
-<link href="/favicon.ico" type="image/x-icon" rel="icon" />
-<link href="/favicon.ico" type="image/x-icon" rel="shortcut icon" />
 <link rel="stylesheet" type="text/css" href="styles.css" />
 <script type="text/javascript" src="jsstyles.js"></script>
 </head>
@@ -59,9 +57,9 @@
 				<div class="top clearfix">
 					<div class="left">
 						<div class="msg">
-							<h2>Sign up an account to Track My Series</h2>
+							<h2>Create an account for Track My Series</h2>
 							<div class="legacy">
-								<form action="/signup" autocomplete="off" id="signupForm"
+								<form action="/register" autocomplete="off" id="signupForm"
 									method="post" accept-charset="utf-8">
 									<div style="display: none;">
 										<input type="hidden" name="_method" value="POST" /><input
@@ -71,13 +69,13 @@
 									</div>
 									<div class="input text required">
 										<label for="UserUsername">Username</label><input
-											name="data[User][username]" type="text"
+											name="data[User][username]" type="username"
 											class="minLength:3 maxLength:15 validate-alphanum validateRemote"
 											tabindex="1" maxlength="255" id="UserUsername" />
 									</div>
 									<div class="input text required">
 										<label for="UserEmail">Email</label><input
-											name="data[User][email]" type="text"
+											name="data[User][email]" type="email"
 											class="required validate-email validateRemote" tabindex="2"
 											maxlength="255" id="UserEmail" />
 									</div>
@@ -85,6 +83,16 @@
 										<label for="UserPasswordFirst">Password</label><input
 											type="password" name="data[User][password_first]"
 											class="minLength:5" tabindex="3" id="UserPasswordFirst" />
+									</div>
+									<div class="input text required">
+										<label for="UserCountry">Country</label><input
+											type="country" name="data[User][country]"
+											class="minLength:5" tabindex="4" id="UserCountry" />
+									</div>
+									<div class="input text required">
+										<label for="UserAge">Age</label><input
+											type="age" name="data[User][age]"
+											class="minLength:1" tabindex="5" id="UserAge" />
 									</div>
 									<div class="input login">
 										<input class="f-button" tabindex="8" type="submit"

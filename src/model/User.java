@@ -14,6 +14,7 @@ public class User {
 			Pattern.compile("(?=.*[0-9])(?=.*[A-Z])(?=\\S+$).{8,}");
 	// at least one digit,at least one upper case letter, at least 8 characters, no whitespaces
 
+	private int userId;
 	private String userName;
 	private int age;
 	private String country;
