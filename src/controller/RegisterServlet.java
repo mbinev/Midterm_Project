@@ -38,15 +38,14 @@ public class RegisterServlet extends HttpServlet{
 		boolean validCountry = validateCountry(country);
 		boolean validAge = validateAge(Integer.valueOf(age));
 		//if the data is not valid //if the data is valid
-		String fileName = "index.html";
 		if(validUserName && validEmail && validPassword && validCountry && validAge) {
 			User u = new User(userName,Integer.valueOf(age), country, email, password);
 			try {
 				UserDAO.getInstance().addUser(u);
 			} catch (SQLException e) {
-				fileName = "registerFail.html";
+				System.out.println("Error in adding user " + e.getMessage());
 			}
-			RequestDispatcher rd1 = req.getRequestDispatcher(fileName);
+			RequestDispatcher rd1 = req.getRequestDispatcher("index.html");
 			rd1.forward(req, resp);
 		} else {
 			RequestDispatcher rd = req.getRequestDispatcher("registerFail.html");

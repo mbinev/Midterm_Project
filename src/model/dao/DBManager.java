@@ -11,8 +11,8 @@ public class DBManager {
 	private static final String DB_IP = "localhost";
 	private static final String DB_PORT = "3306";
 	private static final String DB_NAME = "tms";
-	private static final String DB_USER = "root";
-	private static final String DB_PASS = "A_4537jax";
+	private static final String DB_USER = "tedi";
+	private static final String DB_PASS = "sudjunka";
 	private Connection connection = null;
 	
 	private DBManager() {
@@ -24,7 +24,7 @@ public class DBManager {
 			sc.nextLine();
 		}
 		try {
-			this.connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/tms?user=user&password=user");
+			this.connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/tms?user=tedi&password=sudjunka");
 		} catch (SQLException e) {
 			System.out.println("Unable to connect to Database" + e.getMessage());
 		}

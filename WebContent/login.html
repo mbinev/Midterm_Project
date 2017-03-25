@@ -35,7 +35,7 @@
 									id="Token282167189" />
 							</div>
 							<input name="showName" type="text"
-								fmtv:placeHolder="Search shows or users" id="searchField"
+								placeHolder="Search shows or users" id="searchField"
 								class="text" />
 							<div style="display: none;">
 								<input type="hidden" name="fields"
@@ -62,7 +62,7 @@
 									<div class="login-form-wrapper clearfix">
 										<h2>Sign in</h2>
 										<div class="legacy">
-											<form action="/login" method="post"
+											<form action="login" method="post"
 												accept-charset="utf-8">
 												<div style="display: none;">
 													<input type="hidden" name="_method" value="POST" /><input
@@ -72,14 +72,14 @@
 												</div>
 												<div class="input text required">
 													<label>Your username</label>
-													<input name="username" type="text"
+													<input name="username" type="text" required="required"
 														tabindex="1" maxlength="255"/>
 												</div>
 												<div class="input password">
 													<div class="passwordlabel">
 														<label for="UserPassword">Your password</label> 
 													</div>
-													<input type="password" name="password"
+													<input type="password" name="password" required="required"
 														tabindex="2" />
 												</div>
 												<div class="input submit login clearfix">
