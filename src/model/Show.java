@@ -61,6 +61,7 @@ public class Show {
 		TreeMap<Integer ,Episode> episodes;
 		public Season(int number, long seasonId) {
 			this.number = number;
+			this.seasonId = seasonId;
 			episodes = new TreeMap<Integer, Episode>();
 		}
 		
@@ -75,6 +76,10 @@ public class Show {
 		public TreeMap<Integer, Episode> getEpisode(){
 			return this.episodes;
 		}
+		
+		public long getSeasonId() {
+			return seasonId;
+		}
 	}
 	
 	private long showId;
@@ -88,6 +93,7 @@ public class Show {
 	
 	public Show(String name, String plot, int voteCount) {
 		this.name = name;
+		this.plot = plot;
 		seasons = new TreeMap<Integer, Season>();
 		voters = new HashSet<User>();
 		followers = new HashSet<User>();

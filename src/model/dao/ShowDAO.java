@@ -38,37 +38,39 @@ public class ShowDAO {
 		ResultSet rs = st.getGeneratedKeys();
 		rs.next();
 		s.setShowId(rs.getLong(1));
+		System.out.println(s.getShowId());
+		getAllShows().put(s.getShowName(), s);
 	}
 	
 	public synchronized void addSeason(Show s, int seasonNumber) throws SQLException {
 		String sql = "INSERT INTO seasons (number, show_id) VALUES(?, ?)";
 		PreparedStatement st = DBManager.getInstance().getConnection().prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 		st.setInt(1, seasonNumber);
-		st.setLong(2, getAllShows().get(s).getShowId());
+		st.setLong(2, getAllShows().get(s.getShowName()).getShowId());
 		st.execute();
 		ResultSet rs = st.getGeneratedKeys();
 		rs.next();
-		getAllShows().get(s).addSeason(seasonNumber, rs.getLong(1));
+		getAllShows().get(s.getShowName()).addSeason(seasonNumber, rs.getLong(1));
 	}
 	
 	public synchronized void addEpisode(Show s, int seasonNumber, int number, String name,
 			String plot, LocalDateTime airingDate, boolean isWached) throws SQLException {
-		String sql = "INSERT INTO episodes (number, name, plot, airingDate, isWached, season_id) VALUES(?, ?)";
-		PreparedStatement st = DBManager.getInstance().getConnection().prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+		String sql = "INSERT INTO episodes (number, name, plot, airingDate, isWached, season_id) VALUES(?, ?, ?, ?, ?, ?)";
+		PreparedStatement st = DBManager.getInstance().getConnection().prepareStatement(sql);
 		st.setInt(1, number);
 		st.setString(2, name);
 		st.setString(3, plot);
 		st.setTimestamp(4, Timestamp.valueOf(airingDate));
 		st.setBoolean(5, isWached);
-		st.execute();
-		ResultSet rs = st.getGeneratedKeys();
-		rs.next();
-		getAllShows().get(s).getSeasons().get(seasonNumber).addEpisode(seasonNumber, rs.getLong(1), plot, name, airingDate, isWached);
+		System.out.println(s.getShowId());
+		st.setLong(6, s.getSeasons().get(seasonNumber).getSeasonId());
+		st.executeUpdate();
+		getAllShows().get(s.getShowName()).getSeasons().get(seasonNumber).addEpisode(seasonNumber, s.getShowId(), plot, name, airingDate, isWached);
 	}
 	
 	public HashMap<String, Show> getAllShows() throws SQLException{
 		if(allShows.isEmpty()){
-			String sql = "SELECT name, plot, vote_count FROM shows";
+			String sql = "SELECT show_id, name, plot, vote_count FROM shows";
 			PreparedStatement statement = DBManager.getInstance().getConnection().prepareStatement(sql);
 			ResultSet rs = statement.executeQuery();
 			while(rs.next()){

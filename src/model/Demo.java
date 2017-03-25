@@ -1,15 +1,19 @@
 package model;
 
+import java.sql.SQLException;
+import java.time.LocalDateTime;
+
+import model.dao.ShowDAO;
+
 public class Demo {
 	public static void main(String[] args) {
-		
-//		model.User dasdas = new model.User("Nade", 28, "Bulgaria", "nadeto@abv.bg", "simPLe_89");
-//		Show grim = new Show("Grim", "Action", 0);
-//		dasdas.addShow(grim);
-//		grim.addSeason(1);
-//		grim.getSeasons().get(1).addEpisode(1);
-//		grim.addSeason(1);
-//		grim.getSeasons().get(1).addEpisode(1);
-//		System.out.println(grim.getSeasons().get(1).getEpisode().get(1).getRating());	
+		Show s = new Show("Doc Wshdofdssdsdasafsdaas", "Sci-fi time travel", 3);
+		try {
+			ShowDAO.getInstance().addShow(s);
+			ShowDAO.getInstance().addSeason(s, 1);
+			ShowDAO.getInstance().addEpisode(s, 1, 1, "Guess whos back", "Tardis is the blue box in the back", LocalDateTime.now(), false);
+		} catch (SQLException e) {
+			System.out.println("ops"  + e.getMessage());
+		}
 	}
 }
