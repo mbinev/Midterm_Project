@@ -24,7 +24,7 @@ public class DBManager {
 			sc.nextLine();
 		}
 		try {
-			this.connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/tms?user=user&password=user");
+			this.connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/tms?user=tedi&password=sudjunka");
 		} catch (SQLException e) {
 			System.out.println("Unable to connect to Database" + e.getMessage());
 		}

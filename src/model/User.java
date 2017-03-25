@@ -113,11 +113,10 @@ public class User {
 	}
 	
 	private void setEmail(String email) {
-		if(!validateEmail(email)) {
-			this.email = "johnDoe@abv.bg";
-			return;
+		if(validateEmail(email)) {
+			this.email = email;
 		}
-		this.email = email;
+		
 	}
 	
 	public String getPassword() {
