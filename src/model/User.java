@@ -18,7 +18,7 @@ public class User {
 	private String country;
 	private String email;
 	private String password;
-	private TreeMap<String, Show> myFollowing;
+	private TreeMap<String, Show> myFollowing; // showName - > show
 	
 	public User(String userName, int age, String country, String email, String password) {
 		this.setUserName(userName);
@@ -30,21 +30,21 @@ public class User {
 	}
 	
 	public void addShow(Show show) {
-		if(!myFollowing.containsKey(show.getName())) {
-			myFollowing.put(show.getName(), show);
-			System.out.println("Successfully added show " + show.getName() + " to your list.");
+		if(!myFollowing.containsKey(show.getShowName())) {
+			myFollowing.put(show.getShowName(), show);
+			System.out.println("Successfully added show " + show.getShowName() + " to your list.");
 			return;
 		}
-		System.out.println("Show " + show.getName() + " was already in your list.");
+		System.out.println("Show " + show.getShowName() + " was already in your list.");
 	}
 	
 	public void removeShow(Show show) {
-		if(myFollowing.containsKey(show.getName())) {
-			myFollowing.remove(show.getName());
-			System.out.println("Successfully removed show " + show.getName() + " from your list.");
+		if(myFollowing.containsKey(show.getShowName())) {
+			myFollowing.remove(show.getShowName());
+			System.out.println("Successfully removed show " + show.getShowName() + " from your list.");
 			return;
 		}
-		System.out.println("Show " + show.getName() + " was never on your list.");
+		System.out.println("Show " + show.getShowName() + " was never on your list.");
 	}
 	
 	public void rateShow(Show show, int rating) {
@@ -106,6 +106,10 @@ public class User {
 			return;
 		}
 		this.country = country;
+	}
+	
+	public TreeMap<String, Show> getMyFollowing() {
+		return myFollowing;
 	}
 	
 	public String getEmail() {

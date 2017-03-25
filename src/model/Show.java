@@ -1,6 +1,7 @@
 package model;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.TreeMap;
@@ -12,13 +13,13 @@ public class Show {
 			private int number;
 			private String name;
 			private String plot;
-			private LocalDate airingDate;
+			private LocalDateTime airingDate;
 			private boolean isWached;
 			private LinkedList<Comment> comments;
 			private int voteCount;
 			private HashSet<User> voters;
 			
-			private Episode(int number){
+			private Episode(int number,long episodeId, String plot, String name, LocalDateTime airingDate, boolean isWached){
 				this.number = number;
 				this.isWached = false;
 				comments = new LinkedList<Comment>();
@@ -56,15 +57,16 @@ public class Show {
 		}
 		
 		int number;
+		long seasonId;
 		TreeMap<Integer ,Episode> episodes;
-		public Season(int number) {
+		public Season(int number, long seasonId) {
 			this.number = number;
 			episodes = new TreeMap<Integer, Episode>();
 		}
 		
-		public void addEpisode(int number){
+		public void addEpisode(int number,long episodeId, String plot, String name, LocalDateTime airingDate, boolean isWached){
 			if(!this.episodes.containsKey(number)){
-				this.episodes.put(number, new Episode(number));
+				this.episodes.put(number, new Episode(number, episodeId, plot, name, airingDate, isWached));
 			}else{
 				System.out.println("There is already an episode " + number + " in this season!");
 			}			
@@ -75,6 +77,7 @@ public class Show {
 		}
 	}
 	
+	private long showId;
 	private String name;
 	private String plot;
 	private int voteCount;
@@ -83,7 +86,7 @@ public class Show {
 	TreeMap<Integer, Season> seasons;
 	private LinkedList<Comment> comments;
 	
-	public Show(String name) {
+	public Show(String name, String plot, int voteCount) {
 		this.name = name;
 		seasons = new TreeMap<Integer, Season>();
 		voters = new HashSet<User>();
@@ -91,12 +94,16 @@ public class Show {
 		comments = new LinkedList<Comment>();
 	}
 	
-	public void addSeason(int number){
+	public void addSeason(int number, long id){
 		if(!seasons.containsKey(number)){
-			this.seasons.put(number, new Season(number));
+			this.seasons.put(number, new Season(number, id));
 		}else{
 			System.out.println("This show has already a season " + number);
 		}
+	}
+	
+	public int getVoteCount() {
+		return voteCount;
 	}
 	
 	public double getRating(){
@@ -114,7 +121,15 @@ public class Show {
 		return seasons;
 	}
 	
-	public String getName() {
+	public long getShowId() {
+		return showId;
+	}
+	
+	public void setShowId(long showId) {
+		this.showId = showId;
+	}
+	
+	public String getShowName() {
 		return name;
 	}
 	
@@ -126,5 +141,9 @@ public class Show {
 		for (Comment comment : comments) {
 			System.out.println(comment.getUser().getUserName() + " " + comment.getContent() + " " + comment.getDate());
 		}
+	}
+	
+	public String getPlot() {
+		return plot;
 	}
 }

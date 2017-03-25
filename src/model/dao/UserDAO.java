@@ -9,11 +9,13 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.TreeMap;
 
 import javax.xml.bind.DatatypeConverter;
 
 import com.sun.org.apache.xalan.internal.xsltc.compiler.sym;
 
+import model.Show;
 import model.User;
 
 public class UserDAO {
@@ -59,6 +61,30 @@ public class UserDAO {
 			}
 		}
 		return allUsers;
+	}
+	
+	public TreeMap<String, Show> getFollowingShows(User u) throws SQLException{
+		String sql = "SELECT shows_show_id FROM users_has_shows WHERE users_user_id = "+ u.getUserId();
+		PreparedStatement statement = DBManager.getInstance().getConnection().prepareStatement(sql);
+		ResultSet rs = statement.executeQuery();
+		while(rs.next()){
+			String sql1 = "SELECT name FROM shows WHERE show_id = "+ rs.getLong(1);
+			PreparedStatement st1= DBManager.getInstance().getConnection().prepareStatement(sql1);
+			ResultSet rs1 = st1.executeQuery();
+			while(rs1.next()){
+				String name = rs1.getString(1);
+				u.getMyFollowing().put(name, ShowDAO.getInstance().getAllShows().get(name));
+			}
+		}
+		return u.getMyFollowing();
+	}
+	
+	public synchronized void addToMyFollowing(User u, Show s) throws SQLException{
+		String sql = "INSERT INTO users_has_shows (users_user_id, shows_show_id) VALUES(?, ?)";
+		PreparedStatement st = DBManager.getInstance().getConnection().prepareStatement(sql);
+		st.setLong(1, u.getUserId());
+		st.setLong(2, s.getShowId());
+		u.getMyFollowing().put(s.getShowName(), s);
 	}
 	
 	public synchronized boolean validLogin(String username, String password) throws SQLException{
