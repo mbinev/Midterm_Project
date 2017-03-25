@@ -10,8 +10,6 @@ public class User {
 
 	private static final Pattern VALID_EMAIL_ADDRESS_REGEX = 
 		    Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
-	private static final Pattern VALID_PASSWORD_REGEX = 
-			Pattern.compile("(?=.*[0-9])(?=.*[A-Z])(?=\\S+$).{8,}");
 	// at least one digit,at least one upper case letter, at least 8 characters, no whitespaces
 
 	private long userId;
@@ -127,22 +125,12 @@ public class User {
 	}
 	
 	private void setPassword(String password) {
-		if(!validatePassword(password)) {
-			System.out.println("Invalid password, valid one will be assigned and send to your email.");
-			this.password = "12345678";
-			return;
-		}
 		this.password = password;
 	}
 	
 	private boolean validateEmail(String email) {
 		Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(email);
         return matcher.find();
-	}
-	
-	private boolean validatePassword(String password) {
-		Matcher matcher = VALID_PASSWORD_REGEX.matcher(password);
-		return matcher.find();
 	}
 
 	private boolean isNullOrEmpty(String text) {

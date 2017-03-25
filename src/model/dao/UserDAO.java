@@ -12,6 +12,8 @@ import java.util.HashMap;
 
 import javax.xml.bind.DatatypeConverter;
 
+import com.sun.org.apache.xalan.internal.xsltc.compiler.sym;
+
 import model.User;
 
 public class UserDAO {
@@ -60,13 +62,13 @@ public class UserDAO {
 	}
 	
 	public synchronized boolean validLogin(String username, String password) throws SQLException{
-		if(allUsers.containsKey(username)){
+		if(getAllUsers().containsKey(username)){
 			MessageDigest m;
 			try {
 				m = MessageDigest.getInstance("MD5");
 				m.update(password.getBytes());
-				byte[] digest = m.digest();;
-				String hashtext = DatatypeConverter.printHexBinary(digest).toUpperCase();
+				byte[] digest = m.digest();
+				String hashtext = DatatypeConverter.printHexBinary(digest).toLowerCase();
 				return allUsers.get(username).getPassword().equals(hashtext);
 			} catch (NoSuchAlgorithmException e) {
 				System.out.println("Problem with hashing the password.");
