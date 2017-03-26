@@ -86,6 +86,7 @@ public class UserDAO {
 		PreparedStatement st = DBManager.getInstance().getConnection().prepareStatement(sql);
 		st.setLong(1, u.getUserId());
 		st.setLong(2, s.getShowId());
+		st.executeUpdate();
 		getFollowingShows(u).put(s.getShowName(), s);
 	}
 	
