@@ -64,16 +64,18 @@ public class UserDAO {
 	}
 	
 	public TreeMap<String, Show> getFollowingShows(User u) throws SQLException{
-		String sql = "SELECT shows_show_id FROM users_has_shows WHERE users_user_id = "+ u.getUserId();
-		PreparedStatement statement = DBManager.getInstance().getConnection().prepareStatement(sql);
-		ResultSet rs = statement.executeQuery();
-		while(rs.next()){
-			String sql1 = "SELECT name FROM shows WHERE show_id = "+ rs.getLong(1);
-			PreparedStatement st1= DBManager.getInstance().getConnection().prepareStatement(sql1);
-			ResultSet rs1 = st1.executeQuery();
-			while(rs1.next()){
-				String name = rs1.getString(1);
-				u.getMyFollowing().put(name, ShowDAO.getInstance().getAllShows().get(name));
+		if(u.getMyFollowing().isEmpty()){
+			String sql = "SELECT shows_show_id FROM users_has_shows WHERE users_user_id = "+ u.getUserId();
+			PreparedStatement statement = DBManager.getInstance().getConnection().prepareStatement(sql);
+			ResultSet rs = statement.executeQuery();
+			while(rs.next()){
+				String sql1 = "SELECT name FROM shows WHERE show_id = "+ rs.getLong(1);
+				PreparedStatement st1= DBManager.getInstance().getConnection().prepareStatement(sql1);
+				ResultSet rs1 = st1.executeQuery();
+				while(rs1.next()){
+					String name = rs1.getString(1);
+					u.getMyFollowing().put(name, ShowDAO.getInstance().getAllShows().get(name));
+				}
 			}
 		}
 		return u.getMyFollowing();
@@ -84,7 +86,7 @@ public class UserDAO {
 		PreparedStatement st = DBManager.getInstance().getConnection().prepareStatement(sql);
 		st.setLong(1, u.getUserId());
 		st.setLong(2, s.getShowId());
-		u.getMyFollowing().put(s.getShowName(), s);
+		getFollowingShows(u).put(s.getShowName(), s);
 	}
 	
 	public synchronized boolean validLogin(String username, String password) throws SQLException{

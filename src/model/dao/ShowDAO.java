@@ -38,7 +38,6 @@ public class ShowDAO {
 		ResultSet rs = st.getGeneratedKeys();
 		rs.next();
 		s.setShowId(rs.getLong(1));
-		System.out.println(s.getShowId());
 		getAllShows().put(s.getShowName(), s);
 	}
 	
@@ -62,8 +61,7 @@ public class ShowDAO {
 		st.setString(3, plot);
 		st.setTimestamp(4, Timestamp.valueOf(airingDate));
 		st.setBoolean(5, isWached);
-		System.out.println(s.getShowId());
-		st.setLong(6, s.getSeasons().get(seasonNumber).getSeasonId());
+		st.setLong(6, getAllShows().get(s.getShowName()).getSeasons().get(seasonNumber).getSeasonId());
 		st.executeUpdate();
 		getAllShows().get(s.getShowName()).getSeasons().get(seasonNumber).addEpisode(seasonNumber, s.getShowId(), plot, name, airingDate, isWached);
 	}
@@ -89,7 +87,7 @@ public class ShowDAO {
 					PreparedStatement st2 = DBManager.getInstance().getConnection().prepareStatement(sql2);
 					ResultSet rs2 = st2.executeQuery();
 					while(rs2.next()){
-						s.getSeasons().get(n).addEpisode(rs2.getInt("number"), rs.getLong("episode_id"), rs2.getString("plot"),
+						s.getSeasons().get(n).addEpisode(rs2.getInt("number"), rs2.getLong("episode_id"), rs2.getString("plot"),
 								rs2.getString("name"), rs2.getTimestamp("airingDate").toLocalDateTime(), rs2.getBoolean("isWached"));
 					}
 				}

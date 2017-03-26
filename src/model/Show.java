@@ -68,8 +68,6 @@ public class Show {
 		public void addEpisode(int number,long episodeId, String plot, String name, LocalDateTime airingDate, boolean isWached){
 			if(!this.episodes.containsKey(number)){
 				this.episodes.put(number, new Episode(number, episodeId, plot, name, airingDate, isWached));
-			}else{
-				System.out.println("There is already an episode " + number + " in this season!");
 			}			
 		}
 		
@@ -103,8 +101,6 @@ public class Show {
 	public void addSeason(int number, long id){
 		if(!seasons.containsKey(number)){
 			this.seasons.put(number, new Season(number, id));
-		}else{
-			System.out.println("This show has already a season " + number);
 		}
 	}
 	
