@@ -601,6 +601,9 @@ ul.autocompleter-choices li.autocompleter-selected {
 	background-color:#0c3a4f;
 	color:#fff
 }
+div.boxed {
+  border: 1px solid #20B2AA ;
+}
 ul.autocompleter-choices span.autocompleter-queried {
 	font-weight:bold
 }

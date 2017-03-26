@@ -14,7 +14,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.User;
-import model.dao.DBManager;
 import model.dao.UserDAO;
 
 @WebServlet("/register")

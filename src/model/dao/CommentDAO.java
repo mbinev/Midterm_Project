@@ -7,7 +7,7 @@ public class CommentDAO {
 	private CommentDAO() {
 	}
 	
-	public synchronized CommentDAO getInstance(){
+	public static synchronized CommentDAO getInstance(){
 		if(instance == null){
 			instance = new CommentDAO();
 		}
