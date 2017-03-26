@@ -8,6 +8,7 @@ import java.util.regex.Pattern;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -45,8 +46,10 @@ public class RegisterServlet extends HttpServlet{
 			} catch (SQLException e) {
 				System.out.println("Error in adding user " + e.getMessage());
 			}
-			RequestDispatcher rd1 = req.getRequestDispatcher("index.html");
-			rd1.forward(req, resp);
+			Cookie loginCookie = new Cookie("username", userName);
+			loginCookie.setMaxAge(30*60);
+			resp.addCookie(loginCookie);
+			resp.sendRedirect("index.html");
 		} else {
 			RequestDispatcher rd = req.getRequestDispatcher("registerFail.html");
 			rd.forward(req, resp);
