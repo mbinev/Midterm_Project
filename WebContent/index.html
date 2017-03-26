@@ -1,127 +1,187 @@
 <!DOCTYPE html>
 <html>
-	<head xml:lang="en" lang="en">
-		<title>Track my series - rate, comment, love and track your favorite tv shows.</title>
-		<meta http-equiv="content-language" content="en" />
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<meta name="description" content="Trackmyseries keeps track of your current tv shows. Discover new tv shows, discuss and share them with your friends." />
-		<meta http-equiv="content-language" content="en" />		
-		<link rel="stylesheet" type="text/css" href="styles.css" />
-	</head>
-	<body>
-		<div id="mainContainer">
-			<div id="head">
-				<div class="inner">
-					<h1 class="logo"><a href="index.html">Track My Series</a></h1>
-					<div class="navigation">
-						<ul>
-							<li class="active"><a href="index.html">Home</a></li>
-							<li class="inactive"><a href="/shows/popular">Shows</a></li>
-							<li class="inactive"><a href="/users">Community</a></li>
-						</ul>				
-					</div>
-					<div class="search-wrapper">
-						<div class="search">
-							<form action="/shows/search" id="searchform" method="get" accept-charset="utf-8">
-								<input name="showName" type="text" placeHolder="Search shows or users" id="searchField" class="text" />
-							</form>
-						</div>
-					</div>
-					<div class="service-wrapper">
-						<ul class="service logged-out">
-							<li><a href="/TrackMySeries/register.html">Sign up</a></li>
-							<li class="last"><a href="/TrackMySeries/login.html" class="modalLogin">Sign in</a></li>
-						</ul>
+<head xml:lang="en" lang="en">
+<title>Track my series - rate, comment, love and track your
+	favorite tv shows.</title>
+<meta http-equiv="content-language" content="en" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description"
+	content="Trackmyseries keeps track of your current tv shows. Discover new tv shows, discuss and share them with your friends." />
+<meta http-equiv="content-language" content="en" />
+<link rel="stylesheet" type="text/css" href="styles.css" />
+</head>
+<body>
+	<div id="mainContainer">
+		<div id="head">
+			<div class="inner">
+				<h1 class="logo">
+					<a href="index.html">Track My Series</a>
+				</h1>
+				<div class="navigation">
+					<ul>
+						<li class="active"><a href="index.html">Home</a></li>
+						<li class="inactive"><a href="/shows/popular">Shows</a></li>
+						<li class="inactive"><a href="/users">Community</a></li>
+					</ul>
+				</div>
+				<div class="search-wrapper">
+					<div class="search">
+						<form action="/shows/search" id="searchform" method="get"
+							accept-charset="utf-8">
+							<input name="showName" type="text"
+								placeHolder="Search shows or users" id="searchField"
+								class="text" />
+						</form>
 					</div>
 				</div>
+				<div class="service-wrapper">
+					<ul class="service logged-out">
+						<li><a href="/TrackMySeries/register.html">Sign up</a></li>
+						<li class="last"><a href="/TrackMySeries/login.html"
+							class="modalLogin">Sign in</a></li>
+					</ul>
+				</div>
 			</div>
-			<div id="container">		
-				<div class="hp-inner">
-					<div class="top clearfix">
-						<div class="left">
-							<div class="msg">
-								<h2>Follow your favorite shows</h2>
-								<p>Track My Series <strong>keeps track</strong> of your current tv shows. <strong>Discover</strong> new tv shows, <strong>discuss</strong> and <strong>share</strong> them with your friends.</p>
+		</div>
+		<div id="container">
+			<div class="hp-inner">
+				<div class="top clearfix">
+					<div class="left">
+						<div class="msg">
+							<h2>Follow your favorite shows</h2>
+							<p>
+								Track My Series <strong>keeps track</strong> of your current tv
+								shows. <strong>Discover</strong> new tv shows, <strong>discuss</strong>
+								and <strong>share</strong> them with your friends.
+							</p>
+						</div>
+						<div class="shows">
+							<div class="item clearfix">
+								<a href="/shows/6952/Game_of_Thrones" title="Game of Thrones"
+									class="tooltipme" fmtv:subscrCount="24698" fmtv:rating="4.68"><img
+									src="/media/images/presetcache/092016/list_thumb_Show_57dd8291-5c28-456e-8cc8-5ba005091c3a.png"
+									width="80" height="60" alt="Game of Thrones" /></a>
 							</div>
-							<div class="shows">
-								<div class="item clearfix">
-									<a href="/shows/6952/Game_of_Thrones" title="Game of Thrones" class="tooltipme" fmtv:subscrCount="24698" fmtv:rating="4.68"><img src="/media/images/presetcache/092016/list_thumb_Show_57dd8291-5c28-456e-8cc8-5ba005091c3a.png" width="80" height="60" alt="Game of Thrones" /></a>
-								</div>
-								<div class="item clearfix">
-									<a href="/shows/1770/Band_of_Brothers" title="Band of Brothers" class="tooltipme" fmtv:subscrCount="5864" fmtv:rating="4.67"><img src="/media/images/presetcache/022011/list_thumb_Show_4d620d73-a590-48ed-a523-1a5021ccf9ca.png" width="80" height="60" alt="Band of Brothers" /></a>
-								</div>
-								<div class="item clearfix">
-									<a href="/shows/2783/Breaking_Bad" title="Breaking Bad" class="tooltipme" fmtv:subscrCount="15606" fmtv:rating="4.64"><img src="/media/images/presetcache/092013/list_thumb_Show_522b4913-8864-415b-85d2-4933b0098cec.png" width="80" height="60" alt="Breaking Bad" /></a>
-								</div>
-								<div class="item clearfix">
-									<a href="/shows/16164/Sherlock" title="Sherlock" class="tooltipme" fmtv:subscrCount="15251" fmtv:rating="4.63"><img src="/media/images/presetcache/022011/list_thumb_Show_4d61d541-dd90-4ed1-a1b4-78cd21ccf9ca.png" width="80" height="60" alt="Sherlock" /></a>
-								</div>
-								<div class="item clearfix">
-									<a href="/shows/21306/The_Wire" title="The Wire" class="tooltipme" fmtv:subscrCount="4957" fmtv:rating="4.62"><img src="/media/images/presetcache/112010/list_thumb_Show_4cd07708-5be8-435f-8034-072821ccf9ca.png" width="80" height="60" alt="The Wire" /></a>
-								</div>
-								<div class="item clearfix">
-									<a href="/shows/20876/The_Sopranos" title="The Sopranos" class="tooltipme" fmtv:subscrCount="4337" fmtv:rating="4.53"><img src="/media/images/presetcache/072011/list_thumb_Show_4e35d06e-9e48-4140-a70d-26e921ccf9ca.png" width="80" height="60" alt="The Sopranos" /></a>
-								</div>
-								<div class="item clearfix">
-									<a href="/shows/5197/Doctor_Who" title="Doctor Who" class="tooltipme" fmtv:subscrCount="7140" fmtv:rating="4.53"><img src="/media/images/presetcache/072011/list_thumb_Show_4e35d072-73dc-4b30-a4f0-26e921ccf9ca.png" width="80" height="60" alt="Doctor Who" /></a>
-								</div>
-								<div class="item clearfix">
-									<a href="/shows/27110/Suits" title="Suits" class="tooltipme" fmtv:subscrCount="10102" fmtv:rating="4.50"><img src="/media/images/presetcache/062012/list_thumb_Show_4fef86fd-02dc-492d-b0d8-168bb0098cec.png" width="80" height="60" alt="Suits" /></a>
-								</div>
-								<div class="item clearfix">
-									<a href="/shows/6765/Friends" title="Friends" class="tooltipme" fmtv:subscrCount="10091" fmtv:rating="4.50"><img src="/media/images/presetcache/072011/list_thumb_Show_4e35d06a-1f8c-4172-b616-26e921ccf9ca.png" width="80" height="60" alt="Friends" /></a>
-								</div>
-								<div class="item clearfix">
-									<a href="/shows/6395/Firefly" title="Firefly" class="tooltipme" fmtv:subscrCount="5367" fmtv:rating="4.50"><img src="/media/images/presetcache/072011/list_thumb_Show_4e35d06f-3700-4941-968c-26e921ccf9ca.png" width="80" height="60" alt="Firefly" /></a>
-								</div>
-								<div class="item clearfix">
-									<a href="/shows/4980/Dexter" title="Dexter" class="tooltipme" fmtv:subscrCount="13838" fmtv:rating="4.50"><img src="/media/images/presetcache/072011/list_thumb_Show_4e35d069-50f8-4f68-bc06-26e921ccf9ca.png" width="80" height="60" alt="Dexter" /></a>
-								</div>
-								<div class="item clearfix">
-									<a href="/shows/4084/Community" title="Community" class="tooltipme" fmtv:subscrCount="9246" fmtv:rating="4.45"><img src="/media/images/presetcache/092013/list_thumb_Show_522b49a2-ff18-46f3-b152-22e9b0098cec.png" width="80" height="60" alt="Community" /></a>
-								</div>
+							<div class="item clearfix">
+								<a href="/shows/1770/Band_of_Brothers" title="Band of Brothers"
+									class="tooltipme" fmtv:subscrCount="5864" fmtv:rating="4.67"><img
+									src="/media/images/presetcache/022011/list_thumb_Show_4d620d73-a590-48ed-a523-1a5021ccf9ca.png"
+									width="80" height="60" alt="Band of Brothers" /></a>
+							</div>
+							<div class="item clearfix">
+								<a href="/shows/2783/Breaking_Bad" title="Breaking Bad"
+									class="tooltipme" fmtv:subscrCount="15606" fmtv:rating="4.64"><img
+									src="/media/images/presetcache/092013/list_thumb_Show_522b4913-8864-415b-85d2-4933b0098cec.png"
+									width="80" height="60" alt="Breaking Bad" /></a>
+							</div>
+							<div class="item clearfix">
+								<a href="/shows/16164/Sherlock" title="Sherlock"
+									class="tooltipme" fmtv:subscrCount="15251" fmtv:rating="4.63"><img
+									src="/media/images/presetcache/022011/list_thumb_Show_4d61d541-dd90-4ed1-a1b4-78cd21ccf9ca.png"
+									width="80" height="60" alt="Sherlock" /></a>
+							</div>
+							<div class="item clearfix">
+								<a href="/shows/21306/The_Wire" title="The Wire"
+									class="tooltipme" fmtv:subscrCount="4957" fmtv:rating="4.62"><img
+									src="/media/images/presetcache/112010/list_thumb_Show_4cd07708-5be8-435f-8034-072821ccf9ca.png"
+									width="80" height="60" alt="The Wire" /></a>
+							</div>
+							<div class="item clearfix">
+								<a href="/shows/20876/The_Sopranos" title="The Sopranos"
+									class="tooltipme" fmtv:subscrCount="4337" fmtv:rating="4.53"><img
+									src="/media/images/presetcache/072011/list_thumb_Show_4e35d06e-9e48-4140-a70d-26e921ccf9ca.png"
+									width="80" height="60" alt="The Sopranos" /></a>
+							</div>
+							<div class="item clearfix">
+								<a href="/shows/5197/Doctor_Who" title="Doctor Who"
+									class="tooltipme" fmtv:subscrCount="7140" fmtv:rating="4.53"><img
+									src="/media/images/presetcache/072011/list_thumb_Show_4e35d072-73dc-4b30-a4f0-26e921ccf9ca.png"
+									width="80" height="60" alt="Doctor Who" /></a>
+							</div>
+							<div class="item clearfix">
+								<a href="/shows/27110/Suits" title="Suits" class="tooltipme"
+									fmtv:subscrCount="10102" fmtv:rating="4.50"><img
+									src="/media/images/presetcache/062012/list_thumb_Show_4fef86fd-02dc-492d-b0d8-168bb0098cec.png"
+									width="80" height="60" alt="Suits" /></a>
+							</div>
+							<div class="item clearfix">
+								<a href="/shows/6765/Friends" title="Friends" class="tooltipme"
+									fmtv:subscrCount="10091" fmtv:rating="4.50"><img
+									src="/media/images/presetcache/072011/list_thumb_Show_4e35d06a-1f8c-4172-b616-26e921ccf9ca.png"
+									width="80" height="60" alt="Friends" /></a>
+							</div>
+							<div class="item clearfix">
+								<a href="/shows/6395/Firefly" title="Firefly" class="tooltipme"
+									fmtv:subscrCount="5367" fmtv:rating="4.50"><img
+									src="/media/images/presetcache/072011/list_thumb_Show_4e35d06f-3700-4941-968c-26e921ccf9ca.png"
+									width="80" height="60" alt="Firefly" /></a>
+							</div>
+							<div class="item clearfix">
+								<a href="/shows/4980/Dexter" title="Dexter" class="tooltipme"
+									fmtv:subscrCount="13838" fmtv:rating="4.50"><img
+									src="/media/images/presetcache/072011/list_thumb_Show_4e35d069-50f8-4f68-bc06-26e921ccf9ca.png"
+									width="80" height="60" alt="Dexter" /></a>
+							</div>
+							<div class="item clearfix">
+								<a href="/shows/4084/Community" title="Community"
+									class="tooltipme" fmtv:subscrCount="9246" fmtv:rating="4.45"><img
+									src="/media/images/presetcache/092013/list_thumb_Show_522b49a2-ff18-46f3-b152-22e9b0098cec.png"
+									width="80" height="60" alt="Community" /></a>
 							</div>
 						</div>
-						<div class="right signup hp-signup">
-							<div id="homepageSignup">
-								<h3>Sign up with your email and never loose track of your shows!</h3>
-								<form action="/register" autocomplete="off"  method="post" accept-charset="utf-8">
-									<div style="display:none;">
-										<input type="hidden" name="_method" value="POST" />
-										<input type="hidden" name="data[_Token][key]" value="55cf595a26d37e8087bf21894be2bf64d8d06926" id="Token786155119" />
-									</div>
-									<div class="input text required">
-										<label for="UserUsername">Username</label>
-										<input name="data[User][username]" type="text" required="required" class="minLength:3 maxLength:15 validate-alphanum validateRemote" tabindex="1" maxlength="255" id="UserUsername" />
-									</div>
-									<div class="input text required">
-										<label for="UserEmail">Email</label>
-										<input name="data[User][email]" type="text" required="required" class="required validate-email validateRemote" tabindex="2" maxlength="255" id="UserEmail" />
-									</div>
-									<div class="input password">
-										<label for="UserPasswordFirst">Password</label>
-										<input type="password" name="data[User][password_first]" required="required" class="minLength:5" tabindex="3" id="UserPasswordFirst" />
-									</div>
-									<div class="input text required">
-										<label for="UserCountry">Country</label><input
-											type="country" name="data[User][country]" required="required"
-											class="minLength:5" tabindex="4" id="UserCountry" />
-									</div>
-									<div class="input text required">
-										<label for="UserAge">Age</label><input
-											type="age" name="data[User][age]" required="required"
-											class="minLength:1" tabindex="5" id="UserAge" />
-									</div>
-									<div class="input signup">
-										<input class="f-button" tabindex="8" type="submit" value="Create account" />
-									</div>
-									<div style="display:none;"><input type="hidden" name="data[_Token][fields]" value="601e7ad268c6c51f648e98b1be2425f51073c49a%3A" id="TokenFields1578939062" /></div>
-								</form>
-							</div>
+					</div>
+					<div class="right signup hp-signup">
+						<div id="homepageSignup">
+							<h3>Sign up with your email and never loose track of your
+								shows!</h3>
+							<form action="register" autocomplete="off" method="post"
+								accept-charset="utf-8">
+								<div style="display: none;">
+									<input type="hidden" name="_method" value="POST" /><input
+										type="hidden" name="data[_Token][key]"
+										value="e2ec8ec81cc1353a2c05a71ce2125a09adc60bee"
+										id="Token1031000789" />
+								</div>
+								<div class="input text required">
+									<label for="UserUsername">Username</label><input
+										name="username" type="username" required="required"
+										class="minLength:3 maxLength:15 validate-alphanum validateRemote"
+										tabindex="1" maxlength="255" />
+								</div>
+								<div class="input text required">
+									<label for="UserEmail">Email</label><input name="email"
+										type="text" required="required" class="minLength:7"
+										tabindex="2" />
+								</div>
+								<div class="input password">
+									<label for="UserPasswordFirst">Password(digit/upper case letter/8 characters)</label><input
+										type="password" name="password" required="required"
+										class="minLength:5" tabindex="3" />
+								</div>
+								<div class="input text required">
+									<label for="UserCountry">Country</label><input type="country"
+										name="country" required="required" class="minLength:5"
+										tabindex="4" />
+								</div>
+								<div class="input text required">
+									<label for="UserAge">Age</label><input type="age" name="age"
+										required="required" class="minLength:1" tabindex="5" />
+								</div>
+								<div class="input signup">
+									<input class="f-button" tabindex="8" type="submit"
+										value="Create account" />
+								</div>
+								<div style="display: none;">
+									<input type="hidden" name="data[_Token][fields]"
+										value="601e7ad268c6c51f648e98b1be2425f51073c49a%3A"
+										id="TokenFields1419894355" />
+								</div>
+							</form>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</body>
+	</div>
+</body>
 </html>

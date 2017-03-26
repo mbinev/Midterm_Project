@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -28,11 +29,13 @@ public class LoginServlet extends HttpServlet{
 			System.out.println("Error at validating login - " + e.getMessage());
 		}
 		if(validLogin) {
-			RequestDispatcher rd = req.getRequestDispatcher("index.html");
-			rd.forward(req, resp);
+			Cookie loginCookie = new Cookie("username", userName);
+			loginCookie.setMaxAge(30*60);
+			resp.addCookie(loginCookie);
+			resp.sendRedirect("dashboard.html");
 		} else {
-			RequestDispatcher rd1 = req.getRequestDispatcher("login.html");
-			rd1.forward(req, resp);
+			RequestDispatcher rd = req.getRequestDispatcher("login.html");
+			rd.forward(req, resp);
 		}
 	}
 }
