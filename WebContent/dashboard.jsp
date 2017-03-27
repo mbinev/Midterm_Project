@@ -60,7 +60,7 @@
 		<div id="container">
 		<div class="hp-inner">
 					<div class="top clearfix">
-					<h1>Welcome! Browse your episode list and show list bellow:</h1>
+					<h1>Welcome, ${userName}! Browse your episode list and show list bellow:</h1>
 					<h2 class="not-active"><a href="/episode_list">Episode list</a></h2>
 					<h2 class="not-active"><a href="/show_list">Show list</a></h2>
 			</div>

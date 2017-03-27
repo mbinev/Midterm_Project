@@ -2,6 +2,7 @@ package controller;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -12,12 +13,21 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.User;
 import model.dao.UserDAO;
 
 @WebServlet("/register")
 public class RegisterServlet extends HttpServlet{
+	
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException ,IOException {		
+		
+		
+		req.setAttribute("name", "ivzb");
+		req.getRequestDispatcher("register.jsp").include(req, resp); 
+	};
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
@@ -29,7 +39,7 @@ public class RegisterServlet extends HttpServlet{
 		String email = req.getParameter("email");
 		String password = req.getParameter("password");
 		String country = req.getParameter("country");
-		String age = req.getParameter("age");
+		int age = Integer.parseInt(req.getParameter("age"));
 		
 		//validate parameters
 		boolean validUserName = validateUserName(userName);
@@ -39,16 +49,21 @@ public class RegisterServlet extends HttpServlet{
 		boolean validAge = validateAge(Integer.valueOf(age));
 		//if the data is not valid //if the data is valid
 		if(validUserName && validEmail && validPassword && validCountry && validAge) {
-			User u = new User(userName,Integer.valueOf(age), country, email, password);
+			User u = new User(userName, age, country, email, password);
 			try {
 				UserDAO.getInstance().addUser(u);
 			} catch (SQLException e) {
 				System.out.println("Error in adding user " + e.getMessage());
 			}
-			Cookie loginCookie = new Cookie("username", userName);
-			loginCookie.setMaxAge(30*60);
-			resp.addCookie(loginCookie);
-			resp.sendRedirect("index.html");
+			//Cookie loginCookie = new Cookie("username", userName);
+			//loginCookie.setMaxAge(30*60);
+			//resp.addCookie(loginCookie);
+			HttpSession session=req.getSession();
+	        	//session.setAttribute("userId", u.getUserId());
+	        	session.setAttribute("userName", u.getUserName());
+	        	 // String name=(String)session.getAttribute("name");
+	        	resp.sendRedirect("Dashboard");
+	        
 		} else {
 			RequestDispatcher rd = req.getRequestDispatcher("registerFail.html");
 			rd.forward(req, resp);

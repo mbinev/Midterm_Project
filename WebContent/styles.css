@@ -1142,13 +1142,7 @@ div#toprated .item {
 	padding:0;
 	margin:0 0 10px 0
 }
-.hp-signup div.input.password label,.hp-signup div.input.textarea label,.hp-signup div.input.text label {
-	position:absolute;
-	top:13px;
-	left:14px;
-	color:#999 !important;
-	font-weight:normal
-}
+
 .hp-signup div.input:focus label {
 	display:none
 }

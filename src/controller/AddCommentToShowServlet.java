@@ -17,7 +17,7 @@ public class AddCommentToShowServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		String comment = req.getParameter("comment");
-		CommentDAO.getInstance()
+		//CommentDAO.getInstance()
 	}
 	
 }
