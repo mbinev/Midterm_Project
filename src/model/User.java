@@ -1,5 +1,6 @@
 
 package model;
+import java.util.HashMap;
 import java.util.TreeMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -19,6 +20,7 @@ public class User {
 	private String email;
 	private String password;
 	private TreeMap<String, Show> myFollowing; // showName - > show
+	private HashMap<String, User> friends; // username -> user
 	
 	public User(String userName, int age, String country, String email, String password) {
 		this.setUserName(userName);
@@ -27,6 +29,7 @@ public class User {
 		this.setEmail(email);
 		this.setPassword(password);
 		this.myFollowing = new TreeMap<String, Show>();
+		this.friends = new HashMap<>();
 	}
 	
 	public void addShow(Show show) {
@@ -70,6 +73,10 @@ public class User {
 	
 	public void setUserId(long userId) {
 		this.userId = userId;
+	}
+	
+	public HashMap<String, User> getFriends() {
+		return friends;
 	}
 	
 	public String getUserName() {

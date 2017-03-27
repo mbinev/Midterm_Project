@@ -63,6 +63,51 @@ public class UserDAO {
 		return allUsers;
 	}
 	
+	public void sendFriendRequest(User sender, User reciever) throws SQLException{
+		String sql1 = "SELECT user_one_id, user_two_id, status, action_user_id, action_user_id FROM relationship "
+					+ "WHERE (user_one_id = "+sender.getUserId()+" AND user_two_id = " + reciever.getUserId() + ") "
+					+ "OR (user_one_id = "+ reciever.getUserId() +" AND user_two_id = "+ sender.getUserId() + ")";
+		PreparedStatement st1 = DBManager.getInstance().getConnection().prepareStatement(sql1);
+		if(!st1.execute()){			
+			String sql = "INSERT INTO `relationship` (`user_one_id`, `user_two_id`, `status`, `action_user_id`) VALUES(?, ?, ?, ?)";
+			PreparedStatement st = DBManager.getInstance().getConnection().prepareStatement(sql);
+			st.setLong(1, sender.getUserId());
+			st.setLong(2, reciever.getUserId());
+			st.setInt(3, 0);
+			st.setLong(4, sender.getUserId());
+			st.executeUpdate();
+		}else{
+			System.out.println(sender  + " has already a relationship with " + reciever);
+		}
+	}
+	
+	public void acceptFriendRequest(User sender, User reciever) throws SQLException{
+		String sql = "UPDATE relationship SET status = 1, action_user_id = " + reciever.getUserId() +  " "
+					+ "WHERE (user_one_id = "+sender.getUserId()+" AND user_two_id = " + reciever.getUserId() + ") "
+					+ "OR (user_one_id = "+ reciever.getUserId() +" AND user_two_id = "+ sender.getUserId() + ")";
+		PreparedStatement st = DBManager.getInstance().getConnection().prepareStatement(sql);
+		st.executeUpdate();
+	}
+	
+	public void getAllFriends(User u) throws SQLException{
+		String sql = "SELECT user_two_id FROM relationship WHERE user_one_id = "+u.getUserId()+" AND status = 1";
+		PreparedStatement st = DBManager.getInstance().getConnection().prepareStatement(sql);
+		ResultSet set = null;
+		if(!st.execute()){
+			String sql1 = "SELECT user_one_id FROM relationship WHERE user_two_id = "+u.getUserId()+" AND status = 1";
+			PreparedStatement st1 = DBManager.getInstance().getConnection().prepareStatement(sql);
+			set = st1.executeQuery();
+		}else{
+			set = st.executeQuery();
+		}
+		while(set.next()){
+			String sql1 = "SELECT user_name FROM users WHERE user_id = "+set.getLong(1);
+			PreparedStatement st1 = DBManager.getInstance().getConnection().prepareStatement(sql);
+			ResultSet rs  = st1.executeQuery();
+			u.getFriends().put(rs.getString(1), getAllUsers().get(rs.getString(1)));
+		}
+	}
+	
 	public TreeMap<String, Show> getFollowingShows(User u) throws SQLException{
 		if(u.getMyFollowing().isEmpty()){
 			String sql = "SELECT shows_show_id FROM users_has_shows WHERE users_user_id = "+ u.getUserId();

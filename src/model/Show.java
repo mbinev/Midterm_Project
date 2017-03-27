@@ -2,6 +2,7 @@ package model;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.TreeMap;
@@ -18,12 +19,14 @@ public class Show {
 			private LinkedList<Comment> comments;
 			private int voteCount;
 			private HashSet<User> voters;
+			private HashMap<String, User> friends; // username -> user
 			
 			private Episode(int number,long episodeId, String plot, String name, LocalDateTime airingDate, boolean isWached){
 				this.number = number;
 				this.isWached = false;
 				comments = new LinkedList<Comment>();
 				this.voters = new HashSet<>();
+				friends = new HashMap<>();
 			}
 			
 			public boolean getIsWached() {
