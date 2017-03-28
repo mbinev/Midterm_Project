@@ -5,7 +5,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="description"
 	content="Track My Series keeps track of your current tv shows. Discover new tv shows, discuss and share them with your friends." />
-<meta http-equiv="content-language" content="en" />
 <link rel="stylesheet" type="text/css" href="styles.css" />
 <script type="text/javascript" src="jsstyles.js"></script>
 </head>
@@ -32,13 +31,8 @@
 									id="Token275880280" />
 							</div>
 							<input name="showName" type="text"
-								fmtv:placeHolder="Search shows or users" id="searchField"
+								placeHolder="Search shows or users" id="searchField"
 								class="text" />
-							<div style="display: none;">
-								<input type="hidden" name="fields"
-									value="5c16f520d0a386c7b09b8ee76f784f787bb566c9%3A"
-									id="TokenFields1329920994" />
-							</div>
 						</form>
 					</div>
 				</div>
@@ -50,55 +44,59 @@
 					</ul>
 				</div>
 			</div>
-			<div id="container">
-				<div class="hp-inner">
-					<div class="top clearfix">
-						<div class="left">
-							<div class="msg">
-								<h2>Oooops, wrong data, please try again</h2>
-								<div class="legacy">
-									<form action="register" autocomplete="off" method="post"
-										accept-charset="utf-8">
-										<div style="display: none;">
-											<input type="hidden" name="_method" value="POST" /><input
-												type="hidden" name="data[_Token][key]"
-												value="e2ec8ec81cc1353a2c05a71ce2125a09adc60bee"
-												id="Token1031000789" />
-										</div>
-										<div class="input text required">
-											<input name="username" type="text" required="required"
-												class="minLength:3 maxLength:15 validate-alphanum validateRemote"
-												tabindex="1" maxlength="255" placeholder="Username" />
-										</div>
-										<div class="input text required">
-											<input name="email" type="text" required="required"
-												class="minLength:7" tabindex="2" placeholder="Email" />
-										</div>
-										<div class="input password">
-											<label>digit/upper case letter/8 characters</label> <input
-												type="password" name="password" required="required"
-												class="minLength:5" tabindex="3" placeholder="Password" />
-										</div>
-										<div class="input text required">
-											<input type="text" name="country" required="required"
-												class="minLength:5" tabindex="4" placeholder="Country" />
+		</div>
+		<div id="container">
+			<div class="hp-inner">
+				<div class="top clearfix">
+					<div class="left">
+						<div class="msg">
+							<h2>Incorrect username or password, please try again</h2>
+							<div class="legacy">
+								<form action="register" autocomplete="off" method="post"
+									accept-charset="utf-8">
+									<div class="input text required">
+										<input name="username" type="text" required="required"
+											class="minLength:3 maxLength:15"
+											tabindex="1" maxlength="255" placeholder="Username" />
+									</div>
+									<div class="input text required">
+										<input name="email" type="text" required="required"
+											class="minLength:7" tabindex="2" placeholder="Email" />
+									</div>
+									<div class="input password">
+										<label>Digit/upper case letter/8 characters</label> <input
+											type="password" name="password" required="required"
+											class="minLength:5" tabindex="3" placeholder="Password" />
+									</div>
+									<div class="input password">
+										<input type="password" name="confirm password"
+											required="required" class="minLength:5" tabindex="3"
+											placeholder="Confirm password" />
+									</div>
+									<div class="input text">
+										<label>Country:</label> <select name="country">
+											<option value="Bulgaria">Bulgaria</option>
+											<option value="Romania">Romania</option>
+											<option value="Greece">Greece</option>
+											<option value="Other">Not Listed</option>
+										</select>
+									</div> 
 
-										</div>
-										<div class="input text required">
-											<input type="number" name="age" required="required"
-												class="minLength:1" tabindex="5" placeholder="Age" />
-										</div>
-										<div class="input signup">
-											<input class="f-button" tabindex="8" type="submit"
-												value="Create account" />
-										</div>
-									</form>
-								</div>
+									<div class="input text required">
+										<input type="number" name="age" required="required"
+											class="minLength:1" tabindex="5" placeholder="Age" />
+									</div>
+									<div class="input signup">
+										<input class="f-button" tabindex="8" type="submit"
+											value="Create account" />
+									</div>
+								</form>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+	</div>
 </body>
 </html>

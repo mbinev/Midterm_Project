@@ -29,10 +29,7 @@ public class LoginServlet extends HttpServlet{
 			System.out.println("Error at validating login - " + e.getMessage());
 		}
 		if(validLogin) {
-			Cookie loginCookie = new Cookie("username", userName);
-			loginCookie.setMaxAge(30*60);
-			resp.addCookie(loginCookie);
-			resp.sendRedirect("dashboard.html");
+			resp.sendRedirect("dashboard.jsp");
 		} else {
 			RequestDispatcher rd = req.getRequestDispatcher("login.html");
 			rd.forward(req, resp);

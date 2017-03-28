@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html>
-<head lang="en" lang="en">
+<head lang="en">
 <title>Track my series - rate, comment, love and track your
 	favorite tv shows.</title>
-<meta http-equiv="content-language" content="en" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="description"
 	content="Trackmyseries keeps track of your current tv shows. Discover new tv shows, discuss and share them with your friends." />
-<meta http-equiv="content-language" content="en" />
 <link rel="stylesheet" type="text/css" href="styles.css" />
 </head>
 <body class="users users-dashboard user">
@@ -36,11 +34,6 @@
 							<input name="showName" type="text"
 								placeHolder="Search shows or users" id="searchField"
 								class="text" />
-							<div style="display: none;">
-								<input type="hidden" name="fields"
-									value="5c16f520d0a386c7b09b8ee76f784f787bb566c9%3A"
-									id="TokenFields1450893922" />
-							</div>
 						</form>
 					</div>
 				</div>
