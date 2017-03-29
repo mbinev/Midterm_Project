@@ -11,6 +11,7 @@ public class Show {
 	public class Season{
 		
 		public class Episode{
+			private long episodeId;
 			private int number;
 			private String name;
 			private String plot;
@@ -27,6 +28,15 @@ public class Show {
 				comments = new LinkedList<Comment>();
 				this.voters = new HashSet<>();
 				friends = new HashMap<>();
+				this.episodeId = episodeId;
+			}
+			
+			public long getEpisodeId() {
+				return episodeId;
+			}
+			
+			public void setEpisodeId(long episodeId) {
+				this.episodeId = episodeId;
 			}
 			
 			public boolean getIsWached() {
@@ -37,8 +47,8 @@ public class Show {
 				this.isWached = true;
 			}
 			
-			public void addComment(User user, String content) {
-				this.comments.add(new Comment(user, content));
+			public void addComment(User user, String content, LocalDateTime date) {
+				this.comments.add(new Comment(user, content, date));
 			}
 			
 			public void getComments(){
@@ -74,7 +84,7 @@ public class Show {
 			}			
 		}
 		
-		public TreeMap<Integer, Episode> getEpisode(){
+		public TreeMap<Integer, Episode> getEpisodes(){
 			return this.episodes;
 		}
 		
@@ -138,8 +148,8 @@ public class Show {
 		return name;
 	}
 	
-	public void addComment(User user, String content) {
-		this.comments.add(new Comment(user, content));
+	public void addComment(User user, String content, LocalDateTime date) {
+		this.comments.add(new Comment(user, content, date));
 	}
 	
 	public void getComments(){

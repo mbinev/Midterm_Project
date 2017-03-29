@@ -1,5 +1,6 @@
 
 package model;
+import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.TreeMap;
 import java.util.regex.Matcher;
@@ -55,7 +56,7 @@ public class User {
 	}
 	
 	public void rateEpisode(Show show, int season, int episode, int raiting) {
-		Episode e = show.getSeasons().get(season).getEpisode().get(episode);
+		Episode e = show.getSeasons().get(season).getEpisodes().get(episode);
 		e.vote(this, raiting);
 	}
 	
@@ -147,11 +148,11 @@ public class User {
 		return text.isEmpty() || text == null;
 	}
 	
-	public void makeComment(Show show, String content){
-		show.addComment(this, content);
+	public void makeComment(Show show, String content, LocalDateTime date){
+		show.addComment(this, content, date);
 	}
-	public void makeComment(Episode episode, String content){
-		episode.addComment(this, content);
+	public void makeComment(Episode episode, String content, LocalDateTime date){
+		episode.addComment(this, content, date);
 	}
 
 }

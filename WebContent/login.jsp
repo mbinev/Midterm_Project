@@ -42,7 +42,7 @@
 												<div class="input submit login clearfix">
 													<input class="f-button" tabindex="103" type="submit"
 														value="Sign in" /> or <a
-														href="/TrackMySeries/register.html">sign up now!</a>
+														href="/TrackMySeries/register.jsp">sign up now!</a>
 												</div>
 											</form>
 										</div>
