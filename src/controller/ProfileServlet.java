@@ -9,6 +9,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @WebServlet("/profile")
 public class ProfileServlet extends HttpServlet {
@@ -16,13 +17,16 @@ public class ProfileServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		Cookie cookie[] = req.getCookies();
-		if (cookie != null) {
-			RequestDispatcher rd = req.getRequestDispatcher("dashboard.html");
-			rd.forward(req, resp);
-		} else {
-			RequestDispatcher rd = req.getRequestDispatcher("login.html");
-			rd.forward(req, resp);
-		}
+		HttpSession session = req.getSession();
+        if(session.getAttribute("logged") != null) {
+        	boolean logged = (Boolean) req.getSession().getAttribute("logged");
+        	if(logged) {
+        		resp.sendRedirect("profile.jsp");
+        	} else {
+        		resp.sendRedirect("login.jsp");
+        	}
+        } else {
+        	resp.sendRedirect("login.jsp");
+        }
 	}
 }

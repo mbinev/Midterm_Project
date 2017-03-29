@@ -16,8 +16,10 @@ public class AddCommentToShowServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
+		System.out.println(req.getSession().getAttribute("logged"));
 		String comment = req.getParameter("comment");
-		//CommentDAO.getInstance()
+		String username = (String) req.getSession().getAttribute("username");
+	    resp.sendRedirect("loggedTamplate.jsp");
 	}
 	
 }

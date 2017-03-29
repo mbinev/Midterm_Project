@@ -46,6 +46,7 @@ public class UserDAO {
 		rs.next();
 		u.setUserId(rs.getLong(1));
 		getAllUsers().put(u.getUserName(), u);
+		
 	}
 	
 	public HashMap<String, User> getAllUsers() throws SQLException{

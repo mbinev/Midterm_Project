@@ -8,14 +8,15 @@ import model.dao.UserDAO;
 
 public class Demo {
 	public static void main(String[] args) {
-		Show s = new Show("Once upon a time", "Sci-fi time travel", 3);
-		User u = new User("daswhat", 23, "bulgaria", "daswhat@what.com", "A23_fasD");
+		
 		try {
-			UserDAO.getInstance().addToMyFollowing(UserDAO.getInstance().getAllUsers().get(u.getUserName()), ShowDAO.getInstance().getAllShows().get(s.getShowName()));
-			ShowDAO.getInstance().addSeason(s, 3);
-			ShowDAO.getInstance().addEpisode(s, 3, 7, "Guess whos back", "Tardis is the blue box in the back", LocalDateTime.now(), false);
+			User u = UserDAO.getInstance().getAllUsers().get("daswhat");
+			Show s = ShowDAO.getInstance().getAllShows().get("Walking dead");
+			UserDAO.getInstance().addToMyFollowing(u, s);
 		} catch (SQLException e) {
-			System.out.println("ops"  + e.getMessage());
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
+		
 	}
 }

@@ -10,37 +10,7 @@
 	href="styles.css" />
 </head>
 <body class="users users-login guest">
-	<div id="authMessage" class="message">Login failed. Invalid email
-		and/or password.</div>
-	<div id="mainContainer">
-		<div id="head">
-			<div class="inner">
-				<h1 class="logo"><a href="index.html">Track My Series</a></h1>
-				<div class="navigation">
-					<ul>
-						<li class="inactive"><a href="index.html">Home</a></li>
-						<li class="inactive"><a href="/shows/popular">Shows</a></li>
-					</ul>
-				</div>
-				<div class="search-wrapper">
-					<div class="search">
-						<form action="/shows/search" id="searchform" method="get"
-							accept-charset="utf-8">
-							<input name="showName" type="text"
-								placeHolder="Search shows or users" id="searchField"
-								class="text" />
-						</form>
-					</div>
-				</div>
-				<div class="service-wrapper">
-					<ul class="service logged-out">
-						<li><a href="/TrackMySeries/register.jsp">Sign up</a></li>
-						<li class="last"><a href="/TrackMySeries/login.html" class="modalLogin">Sign
-								in</a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
+	<jsp:include page="notLoggedTamplate.jsp"></jsp:include>
 		<div id="container">
 			<div class="hp-inner">
 					<div class="top clearfix">

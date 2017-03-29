@@ -60,14 +60,10 @@ public class RegisterServlet extends HttpServlet {
 						System.out.println("Error in adding user "
 								+ e.getMessage());
 					}
-					HttpSession session = req.getSession();
-					// session.setAttribute("userId", u.getUserId());
-					session.setAttribute("userName", u.getUserName());
-					// String name=(String)session.getAttribute("name");
-					resp.sendRedirect("Dashboard");
+					resp.sendRedirect("login");
 				} else {
 					RequestDispatcher rd = req
-							.getRequestDispatcher("registerFail.html");
+							.getRequestDispatcher("registerFail.jsp");
 					rd.forward(req, resp);
 				}
 			}

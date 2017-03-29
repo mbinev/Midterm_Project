@@ -10,6 +10,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.dao.UserDAO;
 
@@ -29,9 +30,15 @@ public class LoginServlet extends HttpServlet{
 			System.out.println("Error at validating login - " + e.getMessage());
 		}
 		if(validLogin) {
+			HttpSession session = req.getSession();
+			session.setAttribute("username", userName);
+			session.setAttribute("logged", true);
+			System.out.println("Username in login " + userName);
+			System.out.println("From session " + session.getAttribute("username"));
+			session.setMaxInactiveInterval(15*60); // 15 minutes
 			resp.sendRedirect("dashboard.jsp");
 		} else {
-			RequestDispatcher rd = req.getRequestDispatcher("login.html");
+			RequestDispatcher rd = req.getRequestDispatcher("login.jsp");
 			rd.forward(req, resp);
 		}
 	}

@@ -9,37 +9,21 @@
 <link rel="stylesheet" type="text/css" href="styles.css" />
 </head>
 <body>
-	<div id="mainContainer">
-		<div id="head">
-			<div class="inner">
-				<h1 class="logo">
-					<a href="index.html">Track My Series</a>
-				</h1>
-				<div class="navigation">
-					<ul>
-						<li class="inactive"><a href="index.html">Home</a></li>
-						<li class="active"><a href="shows.html">Shows</a></li>
-					</ul>
-				</div>
-				<div class="search-wrapper">
-					<div class="search">
-						<form action="/shows/search" id="searchform" method="get"
-							accept-charset="utf-8">
-							<input name="showName" type="text"
-								placeHolder="Search shows or users" id="searchField"
-								class="text" />
-						</form>
-					</div>
-				</div>
-				<div class="service-wrapper">
-					<ul class="service logged-out">
-						<li><a href="/TrackMySeries/register.jsp">Sign up</a></li>
-						<li class="last"><a href="/TrackMySeries/login.html"
-							class="modalLogin">Sign in</a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
+	<%
+    if (session.getAttribute("logged") == null) {
+    %>
+	<jsp:include page="notLoggedTamplate.jsp"></jsp:include>>
+	<%
+    } else if((Boolean)session.getAttribute("logged")){
+    %>
+	<jsp:include page="loggedTamplate.jsp"></jsp:include>>
+	<%
+    } else {
+    %>
+    <jsp:include page="notLoggedTamplate.jsp"></jsp:include>>
+    <%
+    }
+    %>
 		<div id="container">
 			<div class="hp-inner">
 				<div class="top clearfix">
@@ -53,7 +37,7 @@
 						</div>
 						<div class="shows">
 							<div class="item clearfix">
-								<a href="game_of_thrones_logged.html" title="Game of Thrones"
+								<a href="game_of_thrones.jsp" title="Game of Thrones"
 									class="tooltipme"><img src="got.png" width="130" height="100"
 									alt="Game of Thrones" /></a>
 							</div>

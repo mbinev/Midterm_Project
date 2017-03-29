@@ -14,11 +14,7 @@ public class LogoutServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest req,
 			HttpServletResponse resp) throws ServletException, IOException {
-		resp.setContentType("text/html");
-
-		Cookie cookie = new Cookie("name", "");
-		cookie.setMaxAge(0);
-		resp.addCookie(cookie);
-		resp.sendRedirect("index.html");
+		req.getSession().setAttribute("logged", false);
+		resp.sendRedirect("index.jsp");
 	}
 }

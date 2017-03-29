@@ -11,51 +11,7 @@
 <link rel="stylesheet" type="text/css" href="styles.css" />
 </head>
 <body class="users users-view user">
-	<div id="head">
-		<div class="inner">
-			<h1 class="logo">
-				<a href="profile.html">Your profile</a>
-			</h1>
-			<div class="navigation">
-				<ul>
-					<li class="inactive"><a href="dashboard.html">Home</a></li>
-					<li class="inactive"><a href="/shows/popular">Shows</a></li>
-					<li class="active"><a href="profile.html">Profile</a></li>
-				</ul>
-			</div>
-			<div class="search-wrapper">
-				<div class="search">
-					<form action="/shows/search" id="searchform" method="get"
-						accept-charset="utf-8">
-						<div style="display: none;">
-							<input type="hidden" name="key"
-								value="843d5f985cf110e85bb100768b72c06bc9f9a5fe"
-								id="Token828135970" />
-						</div>
-						<input name="showName" type="text"
-							fmtv:placeHolder="Search shows or users" id="searchField"
-							class="text" />
-						<div style="display: none;">
-							<input type="hidden" name="fields"
-								value="5c16f520d0a386c7b09b8ee76f784f787bb566c9%3A"
-								id="TokenFields1455746002" />
-						</div>
-					</form>
-				</div>
-			</div>
-			<div class="service-wrapper">
-				<ul class="service logged-in">
-					<li class="menu">
-						<div class="extra">
-							<h2 class="signout">
-								<a href="logout">Sign out</a>
-							</h2>
-						</div>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</div>
+	<jsp:include page="loggedTamplate.jsp"></jsp:include>
 	<div id="container">
 		<div id="container" class="hp-inner">
 			<div class="top clearfix">
