@@ -1,28 +1,30 @@
 package model;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 
 public class Comment {
 	private User user;
-	private LocalDate date;
+	private LocalDateTime date;
 	private String content;
 	
-	public Comment(User user, String content) {
+	public Comment(User user, String content, LocalDateTime date) {
 		this.user = user;
 		this.content = content;
-		this.date = LocalDate.now();
+		this.date = date;
 	}
 	
 	public String getContent() {
 		return content;
 	}
 	
-	public LocalDate getDate() {
+	public LocalDateTime getDate() {
 		return date;
 	}
 		
 	public User getUser() {
 		return user;
 	}
+	
+	
 }
