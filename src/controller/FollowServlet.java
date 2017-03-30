@@ -28,12 +28,13 @@ public class FollowServlet extends HttpServlet {
 			try {
 				User user = UserDAO.getInstance().getAllUsers().get(username);
 				Show show = ShowDAO.getInstance().getAllShows().get(showName);
+				System.out.println(show);
 				UserDAO.getInstance().addToMyFollowing(user, show);
 				System.out.println(user.getMyFollowing());
 				response.sendRedirect("game_of_thrones.jsp");
 			} catch (SQLException e) {
 				System.out.println(e.getMessage());
-				System.out.println(e.getStackTrace());
+				e.getStackTrace();
 				response.sendRedirect("error500.html");
 			}	
 		} else {

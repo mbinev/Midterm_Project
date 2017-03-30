@@ -152,10 +152,8 @@ public class Show {
 		this.comments.add(new Comment(user, content, date));
 	}
 	
-	public void getComments(){
-		for (Comment comment : comments) {
-			System.out.println(comment.getUser().getUserName() + " " + comment.getContent() + " " + comment.getDate());
-		}
+	public LinkedList<Comment> getComments(){
+		return this.comments;
 	}
 	
 	public String getPlot() {

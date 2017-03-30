@@ -33,8 +33,6 @@ public class LoginServlet extends HttpServlet{
 			HttpSession session = req.getSession();
 			session.setAttribute("username", userName);
 			session.setAttribute("logged", true);
-			System.out.println("Username in login " + userName);
-			System.out.println("From session " + session.getAttribute("username"));
 			session.setMaxInactiveInterval(15*60); // 15 minutes
 			resp.sendRedirect("dashboard.jsp");
 		} else {

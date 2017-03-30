@@ -35,15 +35,8 @@
 				for(Entry<String, Show> e : following.entrySet()) {
 					out.append(e.getKey());
 					Show show = e.getValue();
-					out.append(show.getPlot());
 				}
 				%>
-				<c:forEach items="${list}" var="map">
-					<c:forEach items="${map}" var="entry">
-			        ${entry.key}<br>
-			        ${entry.value}<br>
-					</c:forEach>
-				</c:forEach>
 			</div>
 		</div>
 	</div>

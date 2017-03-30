@@ -25,6 +25,11 @@ public class Comment {
 	public User getUser() {
 		return user;
 	}
+
+	@Override
+	public String toString() {
+		return date + " " + user  + ", comment=" + content ;
+	}
 	
 	
 }

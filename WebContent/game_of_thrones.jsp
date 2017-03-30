@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<%@page import="model.Comment"%>
+<%@page import="java.util.LinkedList"%>
+<%@page import="model.dao.ShowDAO"%>
+<%@page import="model.Show"%>
 <html>
 <head>
 <title>Track My Series - Game of Thrones</title>
@@ -125,13 +129,14 @@
 									<div class="form">
 										<div class="input textarea required">
 											<textarea name="comment" maxlength="2000" cols="30" rows="6"
-												id="CommentText"></textarea>
+												required="required" id="CommentText"></textarea>
 										</div>
 										<div class="comment-right">
 											<div class="character-counter">
 												<span id="commentCharCount">0</span>/2000
 											</div>
 											<div class="submit">
+											<input type="hidden" value="Game of thrones" name="show">
 												<input type="submit" value="Submit" />
 											</div>
 										</div>
@@ -141,24 +146,15 @@
 						</form>
 						<h3>Comments</h3>
 						<div id="comments">
-							<div class="comment clearfix first" id="comment-147936">
-								<div class="img">
-									<img
-										src="/media/avatars/40/57ede56b-706c-4c34-8ef8-558a05091c3a.jpeg"
-										width="40" height="40" alt="kruiskamper" />
-								</div>
-								<div class="boxed" style="background-color: NavajoWhite;">
-									<div class="head clearfix">
-										<span class="user"><a href="/u/kruiskamper"
-											title="kruiskamper">kruiskamper</a></span> <span class="time">(Dec
-											15, 2016)</span> <span class="actions"> </span> <span
-											class="r-actions"> </span>
-									</div>
-									<div class="msg">
-										<p>Last season lets go!</p>
-									</div>
-								</div>
-							</div>
+							<% 
+							Show show = ShowDAO.getInstance().getAllShows().get("Game of thrones");
+							LinkedList<Comment> comments = show.getComments();
+							for(Comment c : comments) {
+								out.print(c); %>
+                            <br>
+                            <br>
+							<%}
+							%>
 						</div>
 					</div>
 				</div>
