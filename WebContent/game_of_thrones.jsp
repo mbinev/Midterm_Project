@@ -6,8 +6,8 @@
 <meta name="description"
 	content="Track My Series keeps track of your current tv shows. Discover new tv shows, discuss and share them with your friends." />
 <meta http-equiv="content-language" content="en" />
-<link rel="stylesheet" href="starrr.css">
-<link rel="stylesheet" type="text/css" href="styles.css" />
+<link rel="stylesheet" type="text/css" href="starrr.css">
+<link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body class="users users-signup guest">
 
@@ -33,14 +33,15 @@
 				<div class="msg">
 					<h2>Game of thrones</h2>
 					<class="activedirect"> <a
-						href="/shows/6952/Game_of_Thrones">Overview</a> <class="not-active">
-					<a href="/shows/6952/Game_of_Thrones/episodes">Episodes</a>
+						href="/shows/6952/Game_of_Thrones/episodes">Episodes</a>
 				</div>
-				<ul class="actions">
-					<li><a href="/login" class="big-button add  tip modalLogin"><span>Follow</span></a>
-					</li>
-					<li><a href="/login" class="big-button love modalLogin"><span>Love</span></a></li>
-				</ul>
+
+				<form action="follow" method="post">
+					<input type="hidden" value="Game of thrones" name="show">
+					<input type="submit" value="Follow">
+				</form>
+
+
 				<h4>Click to rate:</h4>
 				<div class='starrr' id='star1'></div>
 				<div>

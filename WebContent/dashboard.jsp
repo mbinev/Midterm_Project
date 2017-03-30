@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
 <%@page import="java.util.Map.Entry"%>
 <%@page import="model.Show"%>
 <%@page import="model.User"%>
@@ -25,8 +27,22 @@
 					<%=session.getAttribute("username")%>! Browse your show list
 					bellow:
 				</h1>
-				<c:forEach items="${following}" var="show">
-					value="${country.key}">${country.value}
+				<%
+					TreeMap<String, Show> following = UserDAO.getInstance()
+							.getFollowingShows(
+									UserDAO.getInstance().getAllUsers()
+											.get(session.getAttribute("username")));
+				for(Entry<String, Show> e : following.entrySet()) {
+					out.append(e.getKey());
+					Show show = e.getValue();
+					out.append(show.getPlot());
+				}
+				%>
+				<c:forEach items="${list}" var="map">
+					<c:forEach items="${map}" var="entry">
+			        ${entry.key}<br>
+			        ${entry.value}<br>
+					</c:forEach>
 				</c:forEach>
 			</div>
 		</div>

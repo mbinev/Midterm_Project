@@ -41,6 +41,14 @@ table {
 html[xmlns] .input,html[xmlns] .clearfix {
 	display:block
 }
+
+.starrr {
+    font-size: 16px;
+    padding: 0 1px;
+    cursor: pointer;
+    color: #FFD119;
+text-decoration: none; }
+
 * html .input,* html .clearfix {
 	height:1%
 }
@@ -178,14 +186,6 @@ ul.service.logged-out li.last a:hover {
 	color:#FFD408
 }
 
-.starrr {
-  display: inline-block; }
-  .starrr a {
-    font-size: 16px;
-    padding: 0 1px;
-    cursor: pointer;
-    color: #FFD119;
-text-decoration: none; }
 
 ul.service li {
 	font-size:0.9em;

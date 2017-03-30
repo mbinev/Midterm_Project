@@ -78,7 +78,7 @@ public class ShowDAO {
 						rs.getInt("vote_count"));
 				s.setShowId(rs.getLong("show_id"));
 				allShows.put(s.getShowName(), s);
-				String sql3 = "SELECT comment_id, username, date, content, shows_show_id FROM seasons WHERE show_id = " + s.getShowId()+" AND episodes_episode_id IS NULL";
+				String sql3 = "SELECT comment_id, username, date, content, shows_show_id FROM comments WHERE show_id = " + s.getShowId()+" AND episodes_episode_id IS NULL";
 				PreparedStatement st3 = DBManager.getInstance().getConnection().prepareStatement(sql3);
 				ResultSet rs3 = st3.executeQuery();
 				while(rs3.next()){
@@ -97,7 +97,7 @@ public class ShowDAO {
 					while(rs2.next()){
 						s.getSeasons().get(n).addEpisode(rs2.getInt("number"), rs2.getLong("episode_id"), rs2.getString("plot"),
 								rs2.getString("name"), rs2.getTimestamp("airingDate").toLocalDateTime(), rs2.getBoolean("isWached"));
-						String sql4 = "SELECT comment_id, username, date, content, shows_show_id FROM seasons WHERE show_id = " + s.getShowId()+" AND episodes_episode_id = " + rs2.getLong("episode_id");
+						String sql4 = "SELECT comment_id, username, date, content, shows_show_id FROM comments WHERE show_id = " + s.getShowId()+" AND episodes_episode_id = " + rs2.getLong("episode_id");
 						PreparedStatement st4 = DBManager.getInstance().getConnection().prepareStatement(sql4);
 						ResultSet rs4 = st4.executeQuery();
 						while(rs4.next()){
