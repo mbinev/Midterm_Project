@@ -6,42 +6,69 @@
 <meta name="description"
 	content="Track My Series keeps track of your current tv shows. Discover new tv shows, discuss and share them with your friends." />
 <meta http-equiv="content-language" content="en" />
+<link rel="stylesheet" href="starrr.css">
 <link rel="stylesheet" type="text/css" href="styles.css" />
-<script type="text/javascript" src="jsstyles.js"></script>
 </head>
 <body class="users users-signup guest">
 
 	<%
-    if (session.getAttribute("logged") == null) {
-    %>
+		if (session.getAttribute("logged") == null) {
+	%>
 	<jsp:include page="notLoggedTamplate.jsp"></jsp:include>>
 	<%
-    } else if((Boolean)session.getAttribute("logged")){
-    %>
+		} else if ((Boolean) session.getAttribute("logged")) {
+	%>
 	<jsp:include page="loggedTamplate.jsp"></jsp:include>>
 	<%
-    } else {
-    %>
-    <jsp:include page="notLoggedTamplate.jsp"></jsp:include>>
-    <%
-    }
-    %>
-   
+		} else {
+	%>
+	<jsp:include page="notLoggedTamplate.jsp"></jsp:include>>
+	<%
+		}
+	%>
+
 	<div id="container">
 		<div class="hp-inner">
 			<div class="top clearfix">
 				<div class="msg">
 					<h2>Game of thrones</h2>
-					<class="active direct"><a
-						href="/shows/6952/Game_of_Thrones">Overview</a>
-					<class="not-active"><a
-						href="/shows/6952/Game_of_Thrones/episodes">Episodes</a>
+					<class="activedirect"> <a
+						href="/shows/6952/Game_of_Thrones">Overview</a> <class="not-active">
+					<a href="/shows/6952/Game_of_Thrones/episodes">Episodes</a>
 				</div>
 				<ul class="actions">
 					<li><a href="/login" class="big-button add  tip modalLogin"><span>Follow</span></a>
 					</li>
 					<li><a href="/login" class="big-button love modalLogin"><span>Love</span></a></li>
 				</ul>
+				<h4>Click to rate:</h4>
+				<div class='starrr' id='star1'></div>
+				<div>
+					<span class='your-choice-was' style='display: none;'> Your
+						rating was <span class='choice'></span>.
+					</span>
+				</div>
+				<script src="starrr.js"></script>
+				<script>
+					$('#star1').star({
+						change : function(e, value) {
+							if (value) {
+								$('.your-choice-was').show();
+								$('.choice').text(value);
+							} else {
+								$('.your-choice-was').hide();
+							}
+						}
+					});
+					var $s2input = $('#star2_input');
+					$('#star2').starrr({
+						max : 10,
+						rating : $s2input.val(),
+						change : function(e, value) {
+							$s2input.val(value).trigger('input');
+						}
+					});
+				</script>
 				<div class="img">
 					<img src="game_of_thrones.jpg" width="220" height="140"
 						class="photo" alt="Game of Thrones" />
@@ -134,26 +161,8 @@
 						</div>
 					</div>
 				</div>
-				<div class="clearfix" id="star-rating-wrapper">
-					<div class="clearfix">
-						<ul id="star-rating" class="rating-bar clearfix">
-							<li class="current-rating" style="width: 94%">Currently
-								4.7/5 stars.</li>
-							<li><a href="/login" class="one-star modalLogin"> Poor 1</a></li>
-							<li><a href="/login" class="two-stars modalLogin">
-									Nothing special 2</a></li>
-							<li><a href="/login" class="three-stars modalLogin">
-									Worth watching 3</a></li>
-							<li><a href="/login" class="four-stars modalLogin">
-									Pretty cool 4</a></li>
-							<li><a href="/login" class="five-stars modalLogin">
-									Awesome 5</a></li>
-						</ul>
-					</div>
-				</div>
 			</div>
 		</div>
-	</div>
 	</div>
 </body>
 </html>
