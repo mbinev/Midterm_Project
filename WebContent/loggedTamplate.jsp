@@ -14,11 +14,10 @@
 	<div id="head">
 		<div class="inner">
 			<h1 class="logo">
-				<a href="profile"><%=session.getAttribute("username")%></a>
+				<a href="dashboard.jsp">TrackMySeries!</a>
 			</h1>
 			<div class="navigation">
 				<ul>
-					<li class="active"><a href="dashboard.jsp">Home</a></li>
 					<li class="inactive"><a href="shows.jsp">Shows</a></li>
 					<li class="inactive"><a href="profile">Profile</a></li>
 				</ul>
@@ -47,9 +46,10 @@
 				<ul class="service logged-in">
 					<li class="menu">
 						<div class="extra">
-							<h2 class="signout">
-								<a href="logout">Sign out</a>
-							</h2>
+							<ul>
+								<li><a href="profile"><h2><%= session.getAttribute("username")%> &nbsp; </h2></a></li>
+								<li class="signout"><a href="logout"><h2>Sign out</h2></a></li>
+							</ul>
 						</div>
 					</li>
 				</ul>

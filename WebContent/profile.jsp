@@ -1,5 +1,10 @@
 
 <!DOCTYPE html>
+<%@page import="model.User"%>
+<%@page import="model.dao.UserDAO"%>
+<%@page import="java.util.Map.Entry"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
 <html>
 <head lang="en" lang="en">
 <title>Track my series - rate, comment, love and track your
@@ -17,7 +22,22 @@
    <div id="container">
 		<div id="container" class="hp-inner">
 			<div class="top clearfix">
-				<h1>hello</h1>
+				<h1>
+					<%=session.getAttribute("profile")%>`s Profile
+				</h1>
+				<%	String username = (String) session.getAttribute("profile");
+					User u = UserDAO.getInstance().getAllUsers().get(username);%>
+				<h2>
+					Email: <%=u.getEmail()%>
+				</h2>
+				<h2>
+					Country: <%=u.getCountry()%>
+				</h2>
+				<h2>
+					Age: <%=u.getAge()%>
+				</h2>
+				<jsp:include page="friends.jsp"></jsp:include>
+			</div>
 		</div>
 	</div>
 </table>
