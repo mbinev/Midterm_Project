@@ -90,23 +90,31 @@ public class UserDAO {
 		st.executeUpdate();
 	}
 	
-	public void getAllFriends(User u) throws SQLException{
+	public HashMap<String, User> getAllFriends(User u) throws SQLException{
 		String sql = "SELECT user_two_id FROM relationship WHERE user_one_id = "+u.getUserId()+" AND status = 1";
 		PreparedStatement st = DBManager.getInstance().getConnection().prepareStatement(sql);
 		ResultSet set = null;
-		if(!st.execute()){
-			String sql1 = "SELECT user_one_id FROM relationship WHERE user_two_id = "+u.getUserId()+" AND status = 1";
-			PreparedStatement st1 = DBManager.getInstance().getConnection().prepareStatement(sql);
-			set = st1.executeQuery();
-		}else{
-			set = st.executeQuery();
-		}
+		String sql1 = "SELECT user_one_id FROM relationship WHERE user_two_id = "+u.getUserId()+" AND status = 1";
+		PreparedStatement st1 = DBManager.getInstance().getConnection().prepareStatement(sql1);
+		set = st.executeQuery();
 		while(set.next()){
-			String sql1 = "SELECT user_name FROM users WHERE user_id = "+set.getLong(1);
-			PreparedStatement st1 = DBManager.getInstance().getConnection().prepareStatement(sql);
-			ResultSet rs  = st1.executeQuery();
-			u.getFriends().put(rs.getString(1), getAllUsers().get(rs.getString(1)));
+			String sql2 = "SELECT user_name FROM users WHERE user_id = "+set.getLong(1);
+			PreparedStatement st2 = DBManager.getInstance().getConnection().prepareStatement(sql2);
+			ResultSet rs  = st2.executeQuery();
+			while(rs.next()){
+				u.getFriends().put(rs.getString(1), getAllUsers().get(rs.getString(1)));
+			}
 		}
+		set = st1.executeQuery();
+		while(set.next()){
+			String sql2 = "SELECT user_name FROM users WHERE user_id = "+set.getLong(1);
+			PreparedStatement st2 = DBManager.getInstance().getConnection().prepareStatement(sql2);
+			ResultSet rs  = st2.executeQuery();
+			while(rs.next()){
+				u.getFriends().put(rs.getString(1), getAllUsers().get(rs.getString(1)));
+			}
+		}
+		return u.getFriends();
 	}
 	
 	public TreeMap<String, Show> getFollowingShows(User u) throws SQLException{

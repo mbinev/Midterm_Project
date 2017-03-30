@@ -23,6 +23,9 @@ public class User {
 	private TreeMap<String, Show> myFollowing; // showName - > show
 	private HashMap<String, User> friends; // username -> user
 	
+	public User() {
+		// TODO Auto-generated constructor stub
+	}
 	public User(String userName, int age, String country, String email, String password) {
 		this.setUserName(userName);
 		this.setAge(age);
@@ -153,6 +156,11 @@ public class User {
 	}
 	public void makeComment(Episode episode, String content, LocalDateTime date){
 		episode.addComment(this, content, date);
+	}
+	
+	@Override
+	public String toString() {
+		return userName;
 	}
 
 }

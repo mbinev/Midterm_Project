@@ -14,13 +14,13 @@
 	<div id="head">
 		<div class="inner">
 			<h1 class="logo">
-				<a href="profile.jsp">Your profile</a>
+				<a href="profile">Your profile</a>
 			</h1>
 			<div class="navigation">
 				<ul>
 					<li class="active"><a href="dashboard.jsp">Home</a></li>
 					<li class="inactive"><a href="shows.jsp">Shows</a></li>
-					<li class="inactive"><a href="profile.jsp">Profile</a></li>
+					<li class="inactive"><a href="profile">Profile</a></li>
 				</ul>
 			</div>
 			<div class="search-wrapper">
