@@ -64,6 +64,16 @@ public class UserDAO {
 		return allUsers;
 	}
 	
+	public boolean isEmailTaken(String email) throws SQLException{
+		String sql = "SELECT email FROM users WHERE email='"+email+"'";
+		PreparedStatement st = DBManager.getInstance().getConnection().prepareStatement(sql);
+		ResultSet rs = st.executeQuery();
+		if (!rs.next()) {    
+		    return true; 
+		} 
+		return false;
+	}
+	
 	public void sendFriendRequest(User sender, User reciever) throws SQLException{
 		String sql1 = "SELECT user_one_id, user_two_id, status, action_user_id, action_user_id FROM relationship "
 					+ "WHERE (user_one_id = "+sender.getUserId()+" AND user_two_id = " + reciever.getUserId() + ") "

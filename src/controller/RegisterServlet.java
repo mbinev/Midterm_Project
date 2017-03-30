@@ -2,28 +2,22 @@ package controller;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map.Entry;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import model.User;
 import model.dao.UserDAO;
 
 @WebServlet("/register")
 public class RegisterServlet extends HttpServlet {
-
-		//req.getRequestDispatcher("register.jsp").include(req, resp);
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
@@ -38,10 +32,17 @@ public class RegisterServlet extends HttpServlet {
 			String country = req.getParameter("country");
 			int age = Integer.parseInt(req.getParameter("age"));
 			HashMap<String, User> users = UserDAO.getInstance().getAllUsers();
+			String error = "";
 			if (!users.containsKey(userName)) {
 				// validate parameters
 				boolean validUserName = validateUserName(userName);
 				boolean validEmail = validateEmail(email);
+				if(!validEmail) {
+					error = "Email is already registerd";
+					req.getSession().setAttribute("error", error);
+					resp.sendRedirect("registerFail.jsp");
+					return;
+				}
 				boolean validPassword = validatePassword(password);
 				boolean validAge = validateAge(Integer.valueOf(age));
 				// if the data is not valid //if the data is valid
@@ -58,6 +59,10 @@ public class RegisterServlet extends HttpServlet {
 				} else {
 					resp.sendRedirect("registerFail.jsp");
 				}
+			} else {
+				error = "Username already exsist";
+				req.getSession().setAttribute("error", error);
+				resp.sendRedirect("registerFail.jsp");
 			}
 		} catch (SQLException e1) {
 			System.out.println("Error in getting users -" + e1.getMessage());
@@ -80,7 +85,13 @@ public class RegisterServlet extends HttpServlet {
 				"^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$",
 				Pattern.CASE_INSENSITIVE);
 		Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(email);
-		return matcher.find();
+		boolean isTaken = false;
+		try {
+			isTaken = UserDAO.getInstance().isEmailTaken(email);
+		} catch (SQLException e) {
+			System.out.println("Problem validating email.");
+		}
+		return matcher.find() && isTaken;
 	}
 
 	private boolean validatePassword(String password) {

@@ -15,7 +15,7 @@
 				<div class="top clearfix">
 					<div class="left">
 						<div class="msg">
-							<h2>Incorrect username or password, please try again</h2>
+							<h2> <%= (String)request.getSession().getAttribute("error") %>, please try again</h2>
 							<div class="legacy">
 								<form action="register" autocomplete="off" method="post"
 									accept-charset="utf-8">

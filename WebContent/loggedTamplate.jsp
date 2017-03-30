@@ -14,7 +14,7 @@
 	<div id="head">
 		<div class="inner">
 			<h1 class="logo">
-				<a href="profile">Your profile</a>
+				<a href="profile"><%=session.getAttribute("username")%></a>
 			</h1>
 			<div class="navigation">
 				<ul>

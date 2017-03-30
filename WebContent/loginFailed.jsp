@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,7 +18,7 @@
 				<div class="left">
 					<div class="content-body">
 						<div class="login-form-wrapper clearfix">
-							<h2>Sign in</h2>
+							<h2 style="color:red">Incorrect username/password, please try again</h2>
 							<div class="legacy">
 								<form action="login" method="post" accept-charset="utf-8">
 									<div style="display: none;">
@@ -48,7 +50,6 @@
 				</div>
 			</div>
 		</div>
-	</div>
 	</div>
 </body>
 </html>

@@ -24,19 +24,21 @@ public class LoginServlet extends HttpServlet{
 		String userName = req.getParameter("username");
 		String password = req.getParameter("password");
 		boolean validLogin = false;
+		HttpSession session = null;
+		String error = "";
 		try {
 			validLogin = UserDAO.getInstance().validLogin(userName, password);
 		} catch (SQLException e) {
 			System.out.println("Error at validating login - " + e.getMessage());
 		}
 		if(validLogin) {
-			HttpSession session = req.getSession();
+			session = req.getSession();
 			session.setAttribute("username", userName);
 			session.setAttribute("logged", true);
 			session.setMaxInactiveInterval(15*60); // 15 minutes
 			resp.sendRedirect("dashboard.jsp");
 		} else {
-			RequestDispatcher rd = req.getRequestDispatcher("login.jsp");
+			RequestDispatcher rd = req.getRequestDispatcher("loginFailed.jsp");
 			rd.forward(req, resp);
 		}
 	}

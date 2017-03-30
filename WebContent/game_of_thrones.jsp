@@ -149,8 +149,10 @@
 							<% 
 							Show show = ShowDAO.getInstance().getAllShows().get("Game of thrones");
 							LinkedList<Comment> comments = show.getComments();
-							for(Comment c : comments) {
-								out.print(c); %>
+							for(Comment c : comments) {%>
+							<div id="summary" class="boxed"
+							style="background-color: NavajoWhite;">
+							<% out.print(c); %>
                             <br>
                             <br>
 							<%}
