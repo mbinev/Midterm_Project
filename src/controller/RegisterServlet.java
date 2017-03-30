@@ -23,13 +23,7 @@ import model.dao.UserDAO;
 @WebServlet("/register")
 public class RegisterServlet extends HttpServlet {
 
-	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
-			throws ServletException, IOException {
-
-		req.setAttribute("name", "ivzb");
-		req.getRequestDispatcher("register.jsp").include(req, resp);
-	};
+		//req.getRequestDispatcher("register.jsp").include(req, resp);
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
@@ -60,11 +54,9 @@ public class RegisterServlet extends HttpServlet {
 						System.out.println("Error in adding user "
 								+ e.getMessage());
 					}
-					resp.sendRedirect("login");
+					resp.sendRedirect("login.jsp");
 				} else {
-					RequestDispatcher rd = req
-							.getRequestDispatcher("registerFail.jsp");
-					rd.forward(req, resp);
+					resp.sendRedirect("registerFail.jsp");
 				}
 			}
 		} catch (SQLException e1) {
